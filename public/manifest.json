@@ -1,0 +1,8 @@
+{
+  "short_name": "Back 2 Game",
+  "name": "Back 2 Game marketplace",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
