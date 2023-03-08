@@ -1,12 +1,20 @@
 import Button from "../Button/Button";
-
 import { ReactComponent as Icon } from "../../assets/icons/rocket.svg";
+import SignUpFormStyled from "./SignUpFormStyled";
+
+interface SignUpformProps {
+  userIcon?: JSX.Element;
+  passwordIcon?: JSX.Element;
+}
 
 const buttonText = "Sign up!";
 
-const SignUpForm = (): JSX.Element => {
+const SignUpForm = ({
+  userIcon,
+  passwordIcon,
+}: SignUpformProps): JSX.Element => {
   return (
-    <>
+    <SignUpFormStyled>
       <div className="signup-form__field">
         <label htmlFor="username"></label>
         <input
@@ -14,7 +22,7 @@ const SignUpForm = (): JSX.Element => {
           type="username"
           name="username"
           className="signup-form__input"
-          placeholder="Introduce your username"
+          placeholder="username"
           required
         ></input>
       </div>
@@ -25,13 +33,13 @@ const SignUpForm = (): JSX.Element => {
           type="password"
           name="password"
           className="signup-form__input"
-          placeholder="Introduce your password"
+          placeholder="password"
           required
         ></input>
       </div>
 
       <Button text={buttonText} icon={<Icon />} />
-    </>
+    </SignUpFormStyled>
   );
 };
 export default SignUpForm;
