@@ -16,7 +16,7 @@ const SignUpForm = ({
   return (
     <SignUpFormStyled>
       <div className="signup-form__field">
-        <label htmlFor="username"></label>
+        <label htmlFor="username">username</label>
         <input
           id="username"
           type="username"
@@ -27,7 +27,7 @@ const SignUpForm = ({
         ></input>
       </div>
       <div className="signup-form__field">
-        <label htmlFor="password"></label>
+        <label htmlFor="password">password</label>
         <input
           id="password"
           type="password"
