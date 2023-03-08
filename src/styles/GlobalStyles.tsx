@@ -15,7 +15,8 @@ body {
   font-family: "Space Mono";
   display: flex;
   justify-content: center;
-  background-color: ${(props) => props.theme.colors.magenta}
+  align-items: baseline;
+  background-color: ${(props) => props.theme.colors.black}
 }
 
 h1,

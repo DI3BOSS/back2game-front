@@ -9,6 +9,7 @@ const theme: DefaultTheme = {
     black: "rgba(30, 30, 30, 1)",
     grey: "rgba(43, 43, 43, 1)",
     lightGrey: "rgba(59, 59, 59, 1)",
+    white: "rgba(255, 255, 255, 1)",
   },
 
   fonts: {
@@ -21,6 +22,11 @@ const theme: DefaultTheme = {
     cardTitle: "1.375rem",
     detailParagraph: "1.125rem",
     title: "2.375rem",
+  },
+  generalStyles: {
+    cornerRadius: "20px",
+    fieldWidth: "315px",
+    fieldHeight: "55px",
   },
 };
 
