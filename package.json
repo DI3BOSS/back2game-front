@@ -54,11 +54,7 @@
     "collectCoverageFrom": [
       "src/**/*.ts",
       "src/**/*.tsx",
-      "!src/index.tsx",
-      "!src/reportWebVitals.ts",
-      "!src/store/index.ts",
-      "!src/store/hooks.ts",
-      "!src/App.tsx"
+      "!src/index.tsx"
     ]
   }
 }
