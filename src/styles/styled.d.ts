@@ -10,6 +10,7 @@ declare module "styled-components" {
       black: string;
       grey: string;
       lightGrey: string;
+      white: string;
     };
 
     fonts: {
@@ -22,6 +23,12 @@ declare module "styled-components" {
       cardTitle: string;
       detailParagraph: string;
       title: string;
+    };
+
+    generalStyles: {
+      cornerRadius: string;
+      fieldWidth: string;
+      fieldHeight: string;
     };
   }
 }
