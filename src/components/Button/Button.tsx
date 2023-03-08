@@ -1,14 +1,14 @@
 import ButtonStyled from "./ButtonStyled";
-import { ReactComponent as Icon } from "../../assets/icons/rocket.svg";
 
 interface ButtonProps {
   text: string;
+  icon?: JSX.Element;
 }
 
-const Button = ({ text }: ButtonProps): JSX.Element => {
+const Button = ({ text, icon }: ButtonProps): JSX.Element => {
   return (
     <ButtonStyled>
-      <Icon />
+      {icon}
       {text}
     </ButtonStyled>
   );
