@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: baseline;
-  background-color: ${(props) => props.theme.colors.black}
+  background-color: rgba(43, 43, 43, 1);
 }
 
 h1,
