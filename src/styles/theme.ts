@@ -21,7 +21,7 @@ const theme: DefaultTheme = {
     standard: "1rem",
     cardTitle: "1.375rem",
     detailParagraph: "1.125rem",
-    title: "2.375rem",
+    title: "4.375rem",
   },
   generalStyles: {
     cornerRadius: "20px",
