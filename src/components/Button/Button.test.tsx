@@ -5,9 +5,9 @@ import theme from "../../styles/theme";
 import GlobalStyles from "../../styles/GlobalStyles";
 
 describe("Given a Button component", () => {
-  describe("When it is call with the text 'Sign up!'", () => {
-    test("Then it should show a button with the text 'Sign up!'", () => {
-      const buttonText = "Sign up!";
+  describe("When it is call with the text 'Log in!'", () => {
+    test("Then it should show a button with the text 'Log in!'", () => {
+      const buttonText = "Log in!";
 
       render(
         <ThemeProvider theme={theme}>
