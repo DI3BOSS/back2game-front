@@ -9,7 +9,6 @@ const SignUpFormStyled = styled.form.attrs({
   align-items: center;
   input {
     margin: 30px;
-    padding-left: 20px;
     width: ${(props) => props.theme.generalStyles.fieldWidth};
     height: ${(props) => props.theme.generalStyles.fieldHeight};
     font-size: ${(props) => props.theme.fontSizes.standard};
@@ -21,6 +20,10 @@ const SignUpFormStyled = styled.form.attrs({
     gap: 12px;
     display: flex;
     align-items: center;
+
+    &::placeholder {
+      padding-left: 20px;
+    }
   }
   .signup-form__field {
     display: flex;

@@ -1,7 +1,7 @@
 import ButtonStyled from "./ButtonStyled";
 
 interface ButtonProps {
-  text: string;
+  text?: string;
   icon?: JSX.Element;
 }
 
