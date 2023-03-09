@@ -7,7 +7,7 @@ import App from "./App";
 import GlobalStyles from "./styles/GlobalStyles";
 import theme from "./styles/theme";
 
-const container = document.body;
+const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 root.render(
