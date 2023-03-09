@@ -6,6 +6,7 @@ const LoaderStyled = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
+  margin-top: 20%;
 
   .outer-circle {
     animation-name: outer-circle;
