@@ -50,6 +50,9 @@ input {
   all: unset;
 }
 
+a {  
+  all: unset
+}
 `;
 
 export default GlobalStyles;
