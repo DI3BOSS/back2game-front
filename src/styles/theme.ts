@@ -7,6 +7,7 @@ const theme: DefaultTheme = {
     magenta: "rgba(230, 63, 141, 1)",
     violet: "rgba(59, 25, 66, 1)",
     black: "rgba(30, 30, 30, 1)",
+    blackAlpha: "rgba(30, 30, 30, 0.9)",
     grey: "rgba(43, 43, 43, 1)",
     lightGrey: "rgba(59, 59, 59, 1)",
     white: "rgba(255, 255, 255, 1)",
