@@ -13,9 +13,11 @@ const SignUpFormStyled = styled.form.attrs({
   input {
     padding-left: 10px;
   }
+
   .icon {
     margin-left: -50px;
   }
+
   .login-form__field {
     display: flex;
     align-items: center;
@@ -27,6 +29,13 @@ const SignUpFormStyled = styled.form.attrs({
     border-radius: ${(props) => props.theme.generalStyles.cornerRadius};
     font-family: ${(props) => props.theme.fonts.mainFont};
     justify-content: center;
+  }
+  .log-in-submit {
+    background: ${(props) => props.theme.colors.magenta};
+
+    :hover {
+      background: ${(props) => props.theme.colors.cyan};
+    }
   }
 `;
 
