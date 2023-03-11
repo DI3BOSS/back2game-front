@@ -17,6 +17,8 @@ const userSlice = createSlice({
 
     logOutUser: (currentUserState: UserStateStructure) => ({
       ...currentUserState,
+      username: "",
+      token: "",
       isLogged: false,
     }),
   },

@@ -3,12 +3,22 @@ import styled from "styled-components";
 const SignUpFormStyled = styled.form.attrs({
   className: "signup-form",
 })`
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  height: 260px;
+
   input {
-    margin: 30px;
+    padding-left: 10px;
+  }
+  .icon {
+    margin-left: -50px;
+  }
+  .login-form__field {
+    display: flex;
+    align-items: center;
     width: ${(props) => props.theme.generalStyles.fieldWidth};
     height: ${(props) => props.theme.generalStyles.fieldHeight};
     font-size: ${(props) => props.theme.fontSizes.standard};
@@ -17,18 +27,6 @@ const SignUpFormStyled = styled.form.attrs({
     border-radius: ${(props) => props.theme.generalStyles.cornerRadius};
     font-family: ${(props) => props.theme.fonts.mainFont};
     justify-content: center;
-    gap: 12px;
-    display: flex;
-    align-items: center;
-
-    &::placeholder {
-      padding-left: 20px;
-    }
-  }
-  .signup-form__field {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 `;
 

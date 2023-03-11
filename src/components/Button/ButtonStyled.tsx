@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const ButtonStyled = styled.button`
-  margin: 20px;
   width: ${(props) => props.theme.generalStyles.fieldWidth};
   height: ${(props) => props.theme.generalStyles.fieldHeight};
   font-size: ${(props) => props.theme.fontSizes.standard};
@@ -12,5 +11,10 @@ const ButtonStyled = styled.button`
   gap: 12px;
   display: flex;
   align-items: center;
+  transition: background-color 0.1s ease-in-out;
+
+  :hover {
+    background: ${(props) => props.theme.colors.cyan};
+  }
 `;
 export default ButtonStyled;
