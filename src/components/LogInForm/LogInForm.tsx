@@ -58,7 +58,7 @@ const LogInForm = (): JSX.Element => {
         ></input>
       </label>
 
-      <Button text="Log in!" icon={<Icon />} type="submit" />
+      <Button text="Log in!" icon={<Icon />} />
     </LogInFormStyled>
   );
 };
