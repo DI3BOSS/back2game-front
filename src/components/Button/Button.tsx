@@ -1,13 +1,14 @@
 import ButtonStyled from "./ButtonStyled";
 
 interface ButtonProps {
+  className?: string;
   text?: string;
   icon?: JSX.Element;
 }
 
-const Button = ({ text, icon }: ButtonProps): JSX.Element => {
+const Button = ({ className, text, icon }: ButtonProps): JSX.Element => {
   return (
-    <ButtonStyled>
+    <ButtonStyled className={className}>
       {icon}
       {text}
     </ButtonStyled>
