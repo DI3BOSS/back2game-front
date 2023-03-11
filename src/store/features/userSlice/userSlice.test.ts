@@ -7,6 +7,12 @@ import {
 
 describe("Given an userReducer", () => {
   const mockedInitialUserState: UserStateStructure = {
+    username: "",
+    token: "",
+    isLogged: false,
+  };
+
+  const mockedUnlogged: UserStateStructure = {
     username: "di3boss",
     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
     isLogged: false,
@@ -20,7 +26,7 @@ describe("Given an userReducer", () => {
 
   describe("When it receives an user not logged in and the action to login", () => {
     test("Then it should return the user with the isLogged property as 'true'", () => {
-      const loginUserAction = logInUserActionCreator(mockedInitialUserState);
+      const loginUserAction = logInUserActionCreator(mockedUnlogged);
 
       const loggedUser = userReducer(mockedInitialUserState, loginUserAction);
 
