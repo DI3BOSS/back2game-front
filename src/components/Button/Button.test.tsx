@@ -4,7 +4,7 @@ import Button from "./Button";
 import theme from "../../styles/theme";
 import GlobalStyles from "../../styles/GlobalStyles";
 
-describe("Given a Button component", () => {
+describe("Given the Button component", () => {
   describe("When it is call with the text 'Log in!'", () => {
     test("Then it should show a button with the text 'Log in!'", () => {
       const buttonText = "Log in!";

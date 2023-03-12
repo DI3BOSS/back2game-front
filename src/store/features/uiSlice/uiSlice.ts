@@ -1,10 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FeedbackModal, UiStateStructure } from "../../../types";
+import {
+  FeedbackModal,
+  UiStateStructure,
+  BurguerStructure,
+} from "../../../types";
 
 const intitialUiState: UiStateStructure = {
   isLoading: false,
-  feedbackModal: { isSuccess: false, message: "" },
-  isOpen: false,
+  feedbackModal: { title: "", isSuccess: false, isWrong: false, message: "" },
+  toggleBurguer: { isOpen: false },
 };
 
 const uiSlice = createSlice({
@@ -23,6 +27,14 @@ const uiSlice = createSlice({
       currentUiState: UiStateStructure,
       action: PayloadAction<FeedbackModal>
     ) => ({ ...currentUiState, feedbackModal: action.payload }),
+
+    toggleBurguerMenu: (
+      currentUiState: UiStateStructure,
+      action: PayloadAction<BurguerStructure>
+    ) => ({
+      ...currentUiState,
+      toggleBurguer: action.payload,
+    }),
   },
 });
 
@@ -30,6 +42,7 @@ export const {
   loaderOn: loaderOnActionCreator,
   loaderOff: loaderOffActionCreator,
   showFeedback: showFeedbackActionCreator,
+  toggleBurguerMenu: toggleBurguerMenuActionCreator,
 } = uiSlice.actions;
 
 export const uiReducer = uiSlice.reducer;
