@@ -45,8 +45,10 @@ const useUser = (): UseUserStructure => {
       dispatch(loaderOffActionCreator());
       dispatch(
         showFeedbackActionCreator({
-          message: "Wrong credentials",
+          title: "Opps...",
+          message: "Something was wrong. Please, try again.",
           isSuccess: false,
+          isWrong: true,
         })
       );
     }

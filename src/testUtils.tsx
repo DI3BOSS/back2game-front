@@ -22,9 +22,10 @@ const renderWithProviders = (
         isLoading: false,
         feedbackModal: {
           isSuccess: false,
+          isWrong: false,
           message: "",
         },
-        isOpen: false,
+        toggleBurguer: { isOpen: false },
       },
     },
     store = configureStore({
