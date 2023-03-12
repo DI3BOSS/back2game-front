@@ -1,9 +1,8 @@
 import FeedbackModal from "./components/FeedbackModal/FeedbackModal";
 import Loader from "./components/Loader/Loader";
-import LogInForm from "./components/LogInForm/LogInForm";
 import { useAppSelector } from "./store/hooks";
-
 import { ReactComponent as Icon } from "./assets/icons/xButton.svg";
+import Layout from "./components/Layout/Layout";
 
 const App = (): JSX.Element => {
   const {
@@ -17,7 +16,7 @@ const App = (): JSX.Element => {
       {isWrong && (
         <FeedbackModal title={title} message={message} icon={<Icon />} />
       )}
-      <LogInForm />
+      <Layout />
     </>
   );
 };
