@@ -22,7 +22,7 @@ const renderWithProviders = (
         isLoading: false,
         feedbackModal: {
           isSuccess: false,
-          isWrong: false,
+          isWrong: true,
           message: "",
         },
         toggleBurguer: { isOpen: false },
