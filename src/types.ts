@@ -17,12 +17,14 @@ export interface UserLoginCredentials {
 export interface UiStateStructure {
   isLoading: boolean;
   feedbackModal: FeedbackModal;
-  isOpen: boolean;
+  toggleBurguer: BurguerStructure;
 }
 
 export interface FeedbackModal {
-  message: string;
-  isSuccess: boolean;
+  title?: string;
+  message?: string;
+  isSuccess?: boolean;
+  isWrong?: boolean;
 }
 
 export interface BurguerStructure {
