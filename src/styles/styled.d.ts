@@ -24,6 +24,8 @@ declare module "styled-components" {
       cardTitle: string;
       detailParagraph: string;
       title: string;
+      errorTitle: string;
+      errorMessage: string;
     };
 
     generalStyles: {
