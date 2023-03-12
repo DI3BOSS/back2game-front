@@ -14,8 +14,8 @@ describe("Given a Loader component", () => {
         </ThemeProvider>
       );
 
-      const htmlExpectedTag = "back2game-logo";
-      const back2gameLogo = screen.getByTestId(htmlExpectedTag);
+      const expectedHtmlTag = "back2game-logo";
+      const back2gameLogo = screen.getByTestId(expectedHtmlTag);
       expect(back2gameLogo).toBeInTheDocument();
     });
   });

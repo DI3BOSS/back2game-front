@@ -23,6 +23,8 @@ const theme: DefaultTheme = {
     cardTitle: "1.375rem",
     detailParagraph: "1.125rem",
     title: "4.375rem",
+    errorTitle: "6rem",
+    errorMessage: "3rem",
   },
   generalStyles: {
     cornerRadius: "20px",
