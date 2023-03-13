@@ -8,11 +8,13 @@ const useToken = (): UseTokenStructure => {
 
   const getToken = useCallback(() => {
     const token = localStorage.getItem("token");
+    const username = localStorage.getItem("username");
 
-    if (token) {
+    if (token && username) {
       dispatch(
         logInUserActionCreator({
           token,
+          username,
           isLogged: true,
         })
       );
@@ -21,6 +23,7 @@ const useToken = (): UseTokenStructure => {
 
   const removeToken = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("username");
   };
 
   return {

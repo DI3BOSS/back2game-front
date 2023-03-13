@@ -39,6 +39,7 @@ const useUser = (): UseUserStructure => {
       dispatch(logInUserActionCreator({ token, username, isLogged: false }));
 
       localStorage.setItem("token", token);
+      localStorage.setItem("username", username);
 
       dispatch(loaderOffActionCreator());
     } catch {
