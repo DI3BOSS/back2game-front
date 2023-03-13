@@ -3,8 +3,16 @@ import { useAppSelector } from "../../store/hooks";
 import FeedbackModal from "../FeedbackModal/FeedbackModal";
 import Loader from "../Loader/Loader";
 import { ReactComponent as Icon } from "../../assets/icons/xButton.svg";
+import useToken from "../../hooks/useToken/useToken";
+import { useEffect } from "react";
 
 const Layout = (): JSX.Element => {
+  const { getToken } = useToken();
+
+  useEffect(() => {
+    getToken();
+  }, [getToken]);
+
   const {
     isLoading,
     feedbackModal: { isWrong, message, title },

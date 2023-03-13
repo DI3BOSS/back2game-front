@@ -13,8 +13,10 @@ describe("Given the useToken custom hook", () => {
   describe("When its getToken function is called", () => {
     test("Then it should call logInUserActionCreator decoding the token", () => {
       const mockedToken = "Whoah!legendofdragoon";
+      const username = "di3boss";
 
       localStorage.setItem("token", mockedToken);
+      localStorage.setItem("username", username);
 
       mockedUseAppDispatch.mockReturnValue(mockedDispatch);
 
@@ -29,7 +31,11 @@ describe("Given the useToken custom hook", () => {
       getToken();
 
       expect(mockedDispatch).toHaveBeenCalledWith(
-        logInUserActionCreator({ token: mockedToken, isLogged: true })
+        logInUserActionCreator({
+          token: mockedToken,
+          isLogged: true,
+          username: "di3boss",
+        })
       );
 
       localStorage.clear();
