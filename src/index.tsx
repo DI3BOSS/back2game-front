@@ -6,7 +6,7 @@ import { store } from "./store";
 import GlobalStyles from "./styles/GlobalStyles";
 import theme from "./styles/theme";
 import { RouterProvider } from "react-router-dom";
-import appRouter from "./router/router";
+import { router } from "./router/router";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -16,7 +16,7 @@ root.render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <RouterProvider router={appRouter} />
+        <RouterProvider router={router} />
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

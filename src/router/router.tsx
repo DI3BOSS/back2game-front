@@ -1,14 +1,23 @@
-import { createBrowserRouter } from "react-router-dom";
-import routes from "./routers";
+import { createBrowserRouter, RouteObject } from "react-router-dom";
+import App from "../App";
+import LogInPage from "../pages/LogInPage/LogInPage";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
-const appRouter = createBrowserRouter(routes);
+const routes: RouteObject[] = [
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <LogInPage />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
+      },
+    ],
+  },
+];
 
-export const getComponentRouter = (ui: React.ReactElement) =>
-  createBrowserRouter([
-    {
-      path: "/",
-      element: ui,
-    },
-  ]);
-
-export default appRouter;
+export const router = createBrowserRouter(routes);
