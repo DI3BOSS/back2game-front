@@ -1,24 +1,15 @@
-import FeedbackModal from "./components/FeedbackModal/FeedbackModal";
-import Loader from "./components/Loader/Loader";
-import { useAppSelector } from "./store/hooks";
-import { ReactComponent as Icon } from "./assets/icons/xButton.svg";
+import { useEffect } from "react";
 import Layout from "./components/Layout/Layout";
+import useToken from "./hooks/useToken/useToken";
 
 const App = (): JSX.Element => {
-  const {
-    isLoading,
-    feedbackModal: { isWrong, message, title },
-  } = useAppSelector((state) => state.ui);
+  const { getToken } = useToken();
 
-  return (
-    <>
-      {isLoading && <Loader />}
-      {isWrong && (
-        <FeedbackModal title={title} message={message} icon={<Icon />} />
-      )}
-      <Layout />
-    </>
-  );
+  useEffect(() => {
+    getToken();
+  }, [getToken]);
+
+  return <Layout />;
 };
 
 export default App;
