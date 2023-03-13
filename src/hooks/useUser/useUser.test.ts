@@ -1,20 +1,10 @@
 import { act, renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
-import { server } from "../../mocks/server";
 import Wrapper from "../../mocks/Wrapper";
 import { logInUserActionCreator } from "../../store/features/userSlice/userSlice";
 import { UserLoginCredentials, UserStateStructure } from "../../types";
 import { CustomTokenPayload } from "./types";
 import useUser from "./useUser";
-
-beforeAll(() => {
-  jest.clearAllMocks();
-  server.listen();
-});
-
-afterAll(() => {
-  server.close();
-});
 
 const moduleName = "../../store/hooks";
 
