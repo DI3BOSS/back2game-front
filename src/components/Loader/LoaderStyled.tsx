@@ -106,6 +106,14 @@ const LoaderStyled = styled.div`
       color: #00b4d6;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .outer-circle,
+    .inner-circle {
+      animation-duration: 0s !important;
+      transform: none !important;
+    }
+  }
 `;
 
 export default LoaderStyled;
