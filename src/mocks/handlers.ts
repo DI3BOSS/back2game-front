@@ -5,7 +5,7 @@ import RoutesStructure from "./types";
 const routes: RoutesStructure = {
   users: "/users",
   login: "/login",
-  games: "games",
+  games: "/games",
 };
 const mockedStatusCodeOk = 200;
 const mockedToken = "Whoah!legendofdragoon";
