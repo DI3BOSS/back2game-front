@@ -3,14 +3,15 @@ import styled from "styled-components";
 const CardComponentStyled = styled.main.attrs({
   className: "card",
 })`
-  height: 550px;
   width: 350px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 
   .card {
     &__image {
       flex: 1;
+      padding: 10px;
       background: ${(props) => props.theme.colors.black};
       border-radius: ${(props) => props.theme.generalStyles.cornerRadius}
         ${(props) => props.theme.generalStyles.cornerRadius} 0 0;
@@ -40,19 +41,23 @@ const CardComponentStyled = styled.main.attrs({
 
     &__price-actions {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
     }
     &__actions {
-      width: 80%;
+      margin-top: 20px;
+      width: 100%;
       display: flex;
       justify-content: space-around;
+      align-items: center;
       padding-bottom: 15px;
     }
   }
 
   .price {
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
     &__title {
       color: #858584;

@@ -1,13 +1,5 @@
+import GameStructure from "../../store/features/gamesSlice/types";
 import CardStyled from "./CardStyled";
-
-interface GameStructure {
-  title: string;
-  platform: string;
-  genre: string;
-  description: string;
-  price: string;
-  cover: string;
-}
 
 interface CardProps {
   game: GameStructure;
