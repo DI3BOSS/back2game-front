@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import { PropsWithChildren } from "react";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "styled-components";
+import { gamesReducer } from "./store/features/gamesSlice/gamesSlice";
 import { uiReducer } from "./store/features/uiSlice/uiSlice";
 import { userReducer } from "./store/features/userSlice/userSlice";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -29,7 +30,7 @@ const renderWithProviders = (
       },
     },
     store = configureStore({
-      reducer: { user: userReducer, ui: uiReducer },
+      reducer: { user: userReducer, ui: uiReducer, games: gamesReducer },
       preloadedState,
     }),
     ...renderOptions

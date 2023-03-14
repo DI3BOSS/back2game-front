@@ -5,7 +5,7 @@ import {
   logOutUserActionCreator,
 } from "./userSlice";
 
-describe("Given an userReducer", () => {
+describe("Given the userReducer", () => {
   const mockedInitialUserState: UserStateStructure = {
     username: "",
     token: "",
