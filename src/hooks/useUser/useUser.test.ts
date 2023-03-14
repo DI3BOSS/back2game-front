@@ -39,7 +39,7 @@ jest.mock("jwt-decode", () => jest.fn());
 
 describe("Give the useUser custom hook", () => {
   describe("When its 'logInUser' function is called with user 'di3boos' and password '123456789'", () => {
-    test("Them it should dispatch the action of log in the user with that credentials", async () => {
+    test("Then it should dispatch the action of log in the user with that credentials", async () => {
       const {
         result: {
           current: { logInUser },
