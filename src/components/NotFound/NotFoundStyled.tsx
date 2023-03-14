@@ -126,6 +126,14 @@ const NotFoundStyled = styled.div`
       }
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .outer-circle,
+    .inner-circle {
+      animation-duration: 0s !important;
+      transform: none !important;
+    }
+  }
 `;
 
 export default NotFoundStyled;
