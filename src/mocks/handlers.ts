@@ -1,9 +1,11 @@
 import { rest } from "msw";
+import mockedGames from "./mockedGames";
 import RoutesStructure from "./types";
 
 const routes: RoutesStructure = {
   users: "/users",
   login: "/login",
+  games: "games",
 };
 const mockedStatusCodeOk = 200;
 const mockedToken = "Whoah!legendofdragoon";
@@ -22,4 +24,26 @@ export const handlers = [
       );
     }
   ),
+
+  rest.get(`${apiUrl}${routes.games}`, async (req, res, ctx) => {
+    return res(
+      ctx.status(mockedStatusCodeOk),
+
+      ctx.json({
+        games: mockedGames,
+      })
+    );
+  }),
+];
+
+export const errorHandlers = [
+  rest.post(
+    `${apiUrl}${routes.users}${routes.login}`,
+    async (req, res, ctx) => {
+      return res(ctx.status(401));
+    }
+  ),
+  rest.get(`${apiUrl}${routes.games}`, async (req, res, ctx) => {
+    return res(ctx.status(200));
+  }),
 ];
