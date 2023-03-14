@@ -7,8 +7,6 @@ const CardComponentStyled = styled.main.attrs({
   width: 350px;
   display: flex;
   flex-direction: column;
-  z-index: 10;
-  position: fixed;
 
   .card {
     &__image {

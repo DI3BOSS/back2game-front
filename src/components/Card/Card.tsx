@@ -1,32 +1,23 @@
-import CardComponentStyled from "./CardComponentStyled";
+import GameStructure from "../../store/features/gamesSlice/types";
+import CardStyled from "./CardStyled";
 
-interface CardComponentProps {
-  image: string;
-  title: string;
-  platform: string;
-  genre: string;
-  pricTitle: string;
-  price: string;
-  editButton?: JSX.Element;
-  deleteButton?: JSX.Element;
+interface CardProps {
+  game: GameStructure;
   viewButton: JSX.Element;
+  deleteButton: JSX.Element;
+  editButton: JSX.Element;
 }
 
 const CardComponent = ({
-  image,
-  title,
-  platform,
-  genre,
-  pricTitle,
-  price,
+  game: { cover, title, platform, genre, price },
   viewButton,
   deleteButton,
   editButton,
-}: CardComponentProps): JSX.Element => {
+}: CardProps): JSX.Element => {
   return (
-    <CardComponentStyled>
+    <CardStyled>
       <div className="card__image">
-        <img src={image} alt={title}></img>
+        <img src={cover} alt={title}></img>
       </div>
       <div className="card__info game-info">
         <h2 className="game-info__title">{title}</h2>
@@ -36,7 +27,7 @@ const CardComponent = ({
         </span>
         <div className="game-info__price-actions">
           <div className="game-info__price price">
-            <span className="price__title">{pricTitle}</span>
+            <span className="price__title">Price</span>
             <span className="price__price-with-vat">{price}</span>
           </div>
           <div className="game-info__actions">
@@ -44,7 +35,7 @@ const CardComponent = ({
           </div>
         </div>
       </div>
-    </CardComponentStyled>
+    </CardStyled>
   );
 };
 export default CardComponent;
