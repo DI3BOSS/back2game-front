@@ -18,8 +18,8 @@ const CardList = (): JSX.Element => {
   return (
     <>
       <CardListStyled>
-        {gameCards.map((game, index) => (
-          <li key={index}>
+        {gameCards.map((game) => (
+          <li key={game.cover}>
             <Card
               game={game}
               deleteButton={<DeleteIcon />}
