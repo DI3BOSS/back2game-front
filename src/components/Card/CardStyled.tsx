@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-const CardComponentStyled = styled.main.attrs({
-  className: "card",
-})`
+const CardComponentStyled = styled.main`
   width: 350px;
   display: flex;
   flex-direction: column;
@@ -51,6 +49,7 @@ const CardComponentStyled = styled.main.attrs({
       justify-content: space-around;
       align-items: center;
       padding-bottom: 15px;
+      cursor: pointer;
     }
   }
 
