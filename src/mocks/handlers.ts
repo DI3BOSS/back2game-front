@@ -8,6 +8,8 @@ const routes: RoutesStructure = {
   games: "/games",
 };
 const mockedStatusCodeOk = 200;
+const mockedStatusCode404 = 401;
+
 const mockedToken = "Whoah!legendofdragoon";
 
 const apiUrl = process.env.REACT_APP_API_URL!;
@@ -40,10 +42,7 @@ export const errorHandlers = [
   rest.post(
     `${apiUrl}${routes.users}${routes.login}`,
     async (req, res, ctx) => {
-      return res(ctx.status(401));
+      return res(ctx.status(mockedStatusCode404));
     }
   ),
-  rest.get(`${apiUrl}${routes.games}`, async (req, res, ctx) => {
-    return res(ctx.status(200));
-  }),
 ];

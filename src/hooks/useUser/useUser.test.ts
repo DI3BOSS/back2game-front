@@ -1,6 +1,7 @@
 import { act, renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
 import Wrapper from "../../mocks/Wrapper";
+import { showFeedbackActionCreator } from "../../store/features/uiSlice/uiSlice";
 import { logInUserActionCreator } from "../../store/features/userSlice/userSlice";
 import { UserLoginCredentials, UserStateStructure } from "../../types";
 import { CustomTokenPayload } from "./types";
@@ -20,6 +21,10 @@ const mockedTokenPayload: CustomTokenPayload = {
 const mockedUserCredentials: UserLoginCredentials = {
   username: "di3boss",
   password: "123456789",
+};
+const mockedWrongUserCredentials: UserLoginCredentials = {
+  username: "di3boss",
+  password: "AAAA",
 };
 
 const mockedUser: UserStateStructure = {
@@ -54,6 +59,27 @@ describe("Give the useUser custom hook", () => {
 
       expect(mockedDispatcher).toHaveBeenCalledWith(
         logInUserActionCreator(mockedUser)
+      );
+    });
+  });
+
+  describe("When its 'logInUser' function is called with user 'di3boos' and a wrong password", () => {
+    test("Then it should dispatch the showFeedbackActionCreator", async () => {
+      const {
+        result: {
+          current: { logInUser },
+        },
+      } = renderHook(() => useUser(), { wrapper: Wrapper });
+
+      await logInUser(mockedWrongUserCredentials);
+
+      expect(mockedDispatcher).toHaveBeenCalledWith(
+        showFeedbackActionCreator({
+          title: "Opps...",
+          message: "Something was wrong. Please, try again.",
+          isSuccess: false,
+          isWrong: true,
+        })
       );
     });
   });

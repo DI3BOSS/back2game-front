@@ -1,7 +1,6 @@
 import { screen } from "@testing-library/react";
 import { RouterProvider } from "react-router-dom";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-
 import renderWithProviders from "../testUtils";
 import { router } from "./router";
 
