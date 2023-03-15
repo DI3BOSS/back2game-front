@@ -6,8 +6,8 @@ interface Routes {
 }
 
 const endpoints: Routes = {
-  logIn: "users/login",
-  myGames: "users/my-games",
+  logIn: "login",
+  myGames: "my-games",
   root: "/",
   notFound: "*",
 };
