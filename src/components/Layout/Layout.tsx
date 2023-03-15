@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
+import BurguerMenu from "../BurguerMenu/BurguerMenu";
 import FeedbackModal from "../FeedbackModal/FeedbackModal";
 import Loader from "../Loader/Loader";
 import { ReactComponent as Icon } from "../../assets/icons/xButton.svg";
@@ -8,7 +9,6 @@ import { useEffect } from "react";
 
 const Layout = (): JSX.Element => {
   const { getToken } = useToken();
-
   useEffect(() => {
     getToken();
   }, [getToken]);
@@ -20,7 +20,9 @@ const Layout = (): JSX.Element => {
 
   return (
     <div className="container">
-      <header></header>
+      <header>
+        <BurguerMenu />
+      </header>
       <main>
         {isLoading && <Loader />}
         {isWrong && (
