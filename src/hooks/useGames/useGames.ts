@@ -4,6 +4,7 @@ import { GetGamesApiResponse } from "../../store/features/gamesSlice/types";
 import {
   loaderOffActionCreator,
   loaderOnActionCreator,
+  showFeedbackActionCreator,
 } from "../../store/features/uiSlice/uiSlice";
 import { useAppDispatch } from "../../store/hooks";
 
@@ -27,9 +28,16 @@ const useGames = () => {
       dispatch(loadGamesActionCreator(games.games));
 
       dispatch(loaderOffActionCreator());
-    } catch (error) {
+    } catch {
       dispatch(loaderOffActionCreator());
-      return (error as Error).message;
+      dispatch(
+        showFeedbackActionCreator({
+          title: "Opps...",
+          message: "Something was wrong. Please, try again.",
+          isSuccess: false,
+          isWrong: true,
+        })
+      );
     }
   }, [apiUrl, dispatch]);
 
