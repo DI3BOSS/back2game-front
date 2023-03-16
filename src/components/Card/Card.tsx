@@ -17,7 +17,7 @@ const Card = ({
   return (
     <CardStyled>
       <div className="card__image">
-        <img src={cover} alt={title}></img>
+        <img src={cover} alt={title} className="card__image-cover"></img>
       </div>
       <div className="card__info game-info">
         <h2 className="game-info__title">{title}</h2>

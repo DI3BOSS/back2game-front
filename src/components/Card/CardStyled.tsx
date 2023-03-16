@@ -4,7 +4,7 @@ const CardComponentStyled = styled.main`
   width: 350px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 
   .card {
     &__image {
@@ -13,6 +13,15 @@ const CardComponentStyled = styled.main`
       background: ${(props) => props.theme.colors.black};
       border-radius: ${(props) => props.theme.generalStyles.cornerRadius}
         ${(props) => props.theme.generalStyles.cornerRadius} 0 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-cover {
+        image-rendering: optimizeSpeed;
+        height: 330px;
+        width: 264px;
+      }
     }
     &__info {
       flex: 1;
@@ -59,7 +68,7 @@ const CardComponentStyled = styled.main`
     align-items: center;
 
     &__title {
-      color: #858584;
+      color: #c8c8c8;
       font-size: 14px;
     }
   }
