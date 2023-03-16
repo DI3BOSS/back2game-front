@@ -21,7 +21,7 @@ const NotFoundStyled = styled.div`
 
   .outer-circle {
     animation-name: outer-circle;
-    animation-duration: 1.4s;
+    animation-duration: 5s;
     animation-delay: 0.5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -39,7 +39,7 @@ const NotFoundStyled = styled.div`
 
   .inner-circle {
     animation-name: inner-circle;
-    animation-duration: 1.2s;
+    animation-duration: 3s;
     animation-delay: 0.5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;

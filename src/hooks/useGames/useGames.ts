@@ -28,7 +28,7 @@ const useGames = () => {
       dispatch(loadGamesActionCreator(games.games));
 
       dispatch(loaderOffActionCreator());
-    } catch {
+    } catch (error) {
       dispatch(loaderOffActionCreator());
       dispatch(
         showFeedbackActionCreator({

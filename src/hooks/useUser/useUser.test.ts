@@ -1,5 +1,7 @@
 import { act, renderHook } from "@testing-library/react";
 import decodeToken from "jwt-decode";
+import { errorHandlers } from "../../mocks/handlers";
+import { server } from "../../mocks/server";
 import Wrapper from "../../mocks/Wrapper";
 import { showFeedbackActionCreator } from "../../store/features/uiSlice/uiSlice";
 import { logInUserActionCreator } from "../../store/features/userSlice/userSlice";
@@ -65,6 +67,8 @@ describe("Give the useUser custom hook", () => {
 
   describe("When its 'logInUser' function is called with user 'di3boos' and a wrong password", () => {
     test("Then it should dispatch the showFeedbackActionCreator", async () => {
+      server.resetHandlers(...errorHandlers);
+
       const {
         result: {
           current: { logInUser },
