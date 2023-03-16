@@ -4,7 +4,6 @@ import { ReactComponent as EditIcon } from "../../assets/icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "../../assets/icons/delete.svg";
 import CardListStyled from "./CardListStyled";
 import { GamesStructure } from "../../store/features/gamesSlice/types";
-
 interface CardListProps {
   games: GamesStructure;
 }
@@ -12,6 +11,7 @@ interface CardListProps {
 const CardList = ({ games }: CardListProps): JSX.Element => {
   return (
     <>
+      <h2 className="shown-games">Showing {games.length} games</h2>
       <CardListStyled>
         {games.map((game) => (
           <li key={game.cover} className="card">
@@ -23,7 +23,6 @@ const CardList = ({ games }: CardListProps): JSX.Element => {
             />
           </li>
         ))}
-        <h2 className="shown-games">Showing {games.length} games</h2>
       </CardListStyled>
     </>
   );
