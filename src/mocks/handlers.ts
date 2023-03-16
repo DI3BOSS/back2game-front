@@ -8,7 +8,8 @@ const routes: RoutesStructure = {
   games: "/games",
 };
 const mockedStatusCodeOk = 200;
-const mockedStatusCode404 = 401;
+const mockedStatusCode404 = 404;
+const mockedStatusServerError = 500;
 
 const mockedToken = "Whoah!legendofdragoon";
 
@@ -45,4 +46,7 @@ export const errorHandlers = [
       return res(ctx.status(mockedStatusCode404));
     }
   ),
+  rest.get(`${apiUrl}${routes.games}`, async (req, res, ctx) => {
+    return res(ctx.status(mockedStatusServerError));
+  }),
 ];

@@ -10,6 +10,8 @@ import useGames from "./useGames";
 
 const spiedDispatch = jest.spyOn(store, "dispatch");
 
+beforeEach(() => jest.clearAllMocks());
+
 describe("Give the useGames custom hook", () => {
   describe("When its 'getGames' function is called", () => {
     test("Then it should dispatch the action of load games", async () => {
@@ -43,6 +45,8 @@ describe("Give the useGames custom hook", () => {
 
   describe("When its 'getGames' function and the server fails", () => {
     test("Then it should dispatch the corrects actions", async () => {
+      server.resetHandlers(...errorHandlers);
+
       const {
         result: {
           current: { getGames },
@@ -50,8 +54,6 @@ describe("Give the useGames custom hook", () => {
       } = renderHook(() => useGames(), { wrapper: Wrapper });
 
       await getGames();
-
-      server.use(...errorHandlers);
 
       expect(spiedDispatch).toHaveBeenCalledWith(loaderOffActionCreator());
       expect(spiedDispatch).not.toHaveBeenCalledWith(mockedGames);
