@@ -3,7 +3,7 @@ import styled from "styled-components";
 const SignUpFormStyled = styled.form.attrs({
   className: "signup-form",
 })`
-  margin-top: 140px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -109,7 +109,9 @@ const LoaderStyled = styled.div`
 
   @media (prefers-reduced-motion: reduce) {
     .outer-circle,
-    .inner-circle {
+    .inner-circle,
+    .loading,
+    .loading span {
       animation-duration: 0s !important;
       transform: none !important;
     }

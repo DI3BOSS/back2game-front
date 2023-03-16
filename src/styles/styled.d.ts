@@ -25,7 +25,7 @@ declare module "styled-components" {
       detailParagraph: string;
       title: string;
       errorTitle: string;
-      errorMessage: string;
+      bigMessage: string;
     };
 
     generalStyles: {
