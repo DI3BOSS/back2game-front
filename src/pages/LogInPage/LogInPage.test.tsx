@@ -23,6 +23,16 @@ describe("Given the LogInPage component", () => {
     expect(inputField).toBeInTheDocument();
   });
 
+  test("Then it should show a title with the text 'Log In'", () => {
+    renderWithProviders(<LogInPage />);
+
+    const expectedTitle = "Log In";
+
+    const logInTitle = screen.getByText(expectedTitle);
+
+    expect(logInTitle).toBeInTheDocument();
+  });
+
   describe("When it is rendered with the button 'Log In!' from LogInForm component", () => {
     test("Then it should show a button with the aria label text 'Log in!'", () => {
       renderWithProviders(<LogInPage />);
