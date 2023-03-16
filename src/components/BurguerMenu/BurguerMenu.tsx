@@ -23,7 +23,11 @@ const BurguerMenu = ({ className }: BurguerMenuProps): JSX.Element => {
   return (
     <BurguerMenuStyled className={className}>
       {!isOpen && (
-        <button onClick={handleOpen} className="burguer">
+        <button
+          onClick={handleOpen}
+          className="burguer"
+          aria-label="burguer menu"
+        >
           <svg
             width="50"
             height="45"
