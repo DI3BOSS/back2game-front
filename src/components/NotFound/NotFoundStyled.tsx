@@ -114,7 +114,7 @@ const NotFoundStyled = styled.div`
     }
     &__message {
       color: ${(props) => props.theme.colors.white};
-      font-size: ${(props) => props.theme.fontSizes.errorMessage};
+      font-size: ${(props) => props.theme.fontSizes.bigMessage};
       font-family: ${(props) => props.theme.fonts.mainFont};
     }
 
@@ -129,7 +129,9 @@ const NotFoundStyled = styled.div`
 
   @media (prefers-reduced-motion: reduce) {
     .outer-circle,
-    .inner-circle {
+    .inner-circle,
+    .error__number,
+    .error__number span {
       animation-duration: 0s !important;
       transform: none !important;
     }
