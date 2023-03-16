@@ -3,7 +3,7 @@ import styled from "styled-components";
 const CardListStyled = styled.ul.attrs({
   className: "game-list",
 })`
-  margin-top: 120px;
+  margin-top: 110px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
