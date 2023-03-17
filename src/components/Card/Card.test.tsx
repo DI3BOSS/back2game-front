@@ -5,6 +5,7 @@ import { screen } from "@testing-library/react";
 
 describe("Given the Card component", () => {
   const mockedGame = {
+    id: "1",
     title: "Suicide Squad: Kill the Justice League",
     platform: "PlayStation 5",
     genre: "Action",

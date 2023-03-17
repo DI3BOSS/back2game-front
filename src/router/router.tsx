@@ -3,7 +3,7 @@ import App from "../App";
 import HomePage from "../pages/HomePage/HomePage";
 import LogInPage from "../pages/LogInPage/LogInPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import endpoints from "./types";
+import endpoints from "./endpoints";
 
 const routes: RouteObject[] = [
   {
