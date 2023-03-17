@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import endpoints from "../../router/types";
 import { loadGamesActionCreator } from "../../store/features/gamesSlice/gamesSlice";
 import { GetGamesApiResponse } from "../../store/features/gamesSlice/types";
 import {
@@ -10,7 +11,7 @@ import { useAppDispatch } from "../../store/hooks";
 
 const useGames = () => {
   const apiUrl = process.env.REACT_APP_API_URL;
-  const getGamesEndpoint = "/games";
+  const getGamesEndpoint = endpoints.apiGames;
 
   const dispatch = useAppDispatch();
 
@@ -39,7 +40,7 @@ const useGames = () => {
         })
       );
     }
-  }, [apiUrl, dispatch]);
+  }, [apiUrl, dispatch, getGamesEndpoint]);
 
   return { getGames };
 };

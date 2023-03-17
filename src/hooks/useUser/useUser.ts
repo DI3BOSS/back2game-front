@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../store/hooks";
 import decodeToken from "jwt-decode";
 import { UserLoginCredentials } from "../../types";
@@ -13,10 +14,13 @@ import {
   showFeedbackActionCreator,
 } from "../../store/features/uiSlice/uiSlice";
 import { useCallback } from "react";
+import endpoints from "../../router/types";
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
-  const userLoginEndpoint = "/users/login";
+  const userLoginEndpoint = endpoints.apiLogIn;
+
+  const redirect = useNavigate();
 
   const dispatch = useAppDispatch();
 
@@ -44,6 +48,8 @@ const useUser = (): UseUserStructure => {
         localStorage.setItem("username", username);
 
         dispatch(loaderOffActionCreator());
+
+        redirect(endpoints.root);
       } catch {
         dispatch(loaderOffActionCreator());
         dispatch(
@@ -56,7 +62,7 @@ const useUser = (): UseUserStructure => {
         );
       }
     },
-    [apiUrl, dispatch]
+    [apiUrl, dispatch, redirect, userLoginEndpoint]
   );
 
   return { logInUser };
