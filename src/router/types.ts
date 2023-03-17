@@ -3,6 +3,8 @@ interface Routes {
   myGames: string;
   root: string;
   notFound: string;
+  apiGames: string;
+  apiLogIn: string;
 }
 
 const endpoints: Routes = {
@@ -10,6 +12,8 @@ const endpoints: Routes = {
   myGames: "my-games",
   root: "/",
   notFound: "*",
+  apiGames: "/games",
+  apiLogIn: "/users/login",
 };
 
 export default endpoints;

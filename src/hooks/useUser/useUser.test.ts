@@ -42,6 +42,10 @@ jest.mock(moduleName, () => ({
   useAppDispatch: () => mockedDispatcher,
 }));
 
+jest.mock("react-router-dom", () => ({
+  useNavigate: jest.fn(),
+}));
+
 jest.mock("jwt-decode", () => jest.fn());
 
 describe("Give the useUser custom hook", () => {
