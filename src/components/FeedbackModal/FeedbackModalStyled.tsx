@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FeedbackModalStyled = styled.button.attrs({
+const FeedbackModalStyled = styled.div.attrs({
   className: "modal-feedback",
   "aria-label": "feedback modal",
 })`
