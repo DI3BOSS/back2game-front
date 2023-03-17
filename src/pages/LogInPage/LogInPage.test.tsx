@@ -2,6 +2,10 @@ import { screen } from "@testing-library/react";
 import renderWithProviders from "../../testUtils";
 import LogInPage from "./LogInPage";
 
+jest.mock("react-router-dom", () => ({
+  useNavigate: jest.fn(),
+}));
+
 describe("Given the LogInPage component", () => {
   const placeHolderUsernameText = "username";
   const PlaceHolderPasswordText = "password";
