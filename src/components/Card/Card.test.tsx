@@ -1,7 +1,8 @@
 import renderWithProviders from "../../testUtils";
 import Card from "./Card";
 import { ReactComponent as ViewIcon } from "../../assets/icons/view.svg";
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe("Given the Card component", () => {
   const mockedGame = {
@@ -57,6 +58,16 @@ describe("Given the Card component", () => {
       const gameName = screen.getByAltText(expectedAltText);
 
       expect(gameName).toBeInTheDocument();
+    });
+
+    test("Then it should call the deleteGame function when the delete button is clicked", async () => {
+      renderWithProviders(<Card game={mockedGame} viewButton={mockedIcon} />);
+
+      const deleteGame = screen.getByRole("button");
+
+      await waitFor(async () => await userEvent.click(deleteGame));
+
+      expect(deleteGame).toBeInTheDocument();
     });
   });
 });

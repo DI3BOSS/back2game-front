@@ -34,9 +34,8 @@ const Card = ({
             <span className="price__title">Price</span>&nbsp;{price}
           </div>
           <div className="game-info__actions">
-            {editButton}{" "}
             <Button icon={deleteButton} onClick={() => deleteGame(id)} />
-            {viewButton}
+            <Button icon={viewButton} />
           </div>
         </div>
       </div>
