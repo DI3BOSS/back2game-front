@@ -1,4 +1,6 @@
+import useGames from "../../hooks/useGames/useGames";
 import GameStructure from "../../store/features/gamesSlice/types";
+import Button from "../Button/Button";
 import CardStyled from "./CardStyled";
 
 interface CardProps {
@@ -9,11 +11,13 @@ interface CardProps {
 }
 
 const Card = ({
-  game: { cover, title, platform, genre, price },
+  game: { id, cover, title, platform, genre, price },
   viewButton,
   deleteButton,
   editButton,
 }: CardProps): JSX.Element => {
+  const { deleteGame } = useGames();
+
   return (
     <CardStyled>
       <div className="card__image">
@@ -30,7 +34,9 @@ const Card = ({
             <span className="price__title">Price</span>&nbsp;{price}
           </div>
           <div className="game-info__actions">
-            {editButton} {deleteButton} {viewButton}
+            {editButton}{" "}
+            <Button icon={deleteButton} onClick={() => deleteGame(id)} />
+            {viewButton}
           </div>
         </div>
       </div>
