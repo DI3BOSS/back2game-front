@@ -7,7 +7,7 @@ const endpoints: Routes = {
   notFound: "*",
   apiGames: "/games",
   apiLogIn: "/users/login",
-  apiDelete: "/games/delete",
+  apiDelete: "/games/delete/",
 };
 
 export default endpoints;
