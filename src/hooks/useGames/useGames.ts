@@ -1,18 +1,23 @@
 import { useCallback } from "react";
-import endpoints from "../../router/types";
-import { loadGamesActionCreator } from "../../store/features/gamesSlice/gamesSlice";
-import { GetGamesApiResponse } from "../../store/features/gamesSlice/types";
+import endpoints from "../../router/endpoints";
+import {
+  deleteGameActionCreator,
+  loadGamesActionCreator,
+} from "../../store/features/gamesSlice/gamesSlice";
+import { GamesApiResponse } from "../../store/features/gamesSlice/types";
 import {
   loaderOffActionCreator,
   loaderOnActionCreator,
   showFeedbackActionCreator,
 } from "../../store/features/uiSlice/uiSlice";
-import { useAppDispatch } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 const useGames = () => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const getGamesEndpoint = endpoints.apiGames;
+  const deleteGameEndpoint = endpoints.apiDelete;
 
+  const { token } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
 
   const getGames = useCallback(async () => {
@@ -24,7 +29,7 @@ const useGames = () => {
         headers: { "Content-type": "application/json" },
       });
 
-      const games = (await response.json()) as GetGamesApiResponse;
+      const games = (await response.json()) as GamesApiResponse;
 
       dispatch(loadGamesActionCreator(games.games));
 
@@ -42,7 +47,34 @@ const useGames = () => {
     }
   }, [apiUrl, dispatch, getGamesEndpoint]);
 
-  return { getGames };
+  const deleteGame = async (gameId: string) => {
+    try {
+      dispatch(loaderOnActionCreator());
+
+      const response = await fetch(`${apiUrl}${deleteGameEndpoint}${gameId}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (!response.ok) {
+        throw new Error("flamita");
+      }
+      dispatch(loaderOffActionCreator());
+      dispatch(deleteGameActionCreator(gameId));
+    } catch (error) {
+      dispatch(loaderOffActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          title: "Opps...",
+          message: "Couldn't delete de game. Please, try again",
+          isSuccess: false,
+          isWrong: true,
+        })
+      );
+    }
+  };
+
+  return { getGames, deleteGame };
 };
 
 export default useGames;

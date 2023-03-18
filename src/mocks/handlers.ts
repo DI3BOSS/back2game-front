@@ -6,7 +6,7 @@ const routes: RoutesStructure = {
   users: "/users",
   login: "/login",
   games: "/games",
-  delete: "/games/delete",
+  delete: "/games/delete/",
 };
 const mockedStatusCodeOk = 200;
 const mockedStatusCode404 = 404;
@@ -40,7 +40,7 @@ export const handlers = [
     );
   }),
 
-  rest.delete(`${apiUrl}${routes.delete}/1`, (req, res, ctx) =>
+  rest.delete(`${apiUrl}${routes.delete}1`, (req, res, ctx) =>
     res(
       ctx.status(mockedStatusCodeOk),
       ctx.json({
@@ -62,7 +62,10 @@ export const errorHandlers = [
     return res(ctx.status(mockedStatusServerError));
   }),
 
-  rest.delete(`${apiUrl}${routes.delete}/1`, (req, res, ctx) =>
-    res(ctx.status(mockedStatusCode400))
+  rest.delete(`${apiUrl}${routes.delete}3`, (req, res, ctx) =>
+    res(
+      ctx.status(mockedStatusCode400),
+      ctx.json({ error: "Internal Server Error: Something went wrong." })
+    )
   ),
 ];
