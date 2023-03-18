@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 const ButtonStyled = styled.button`
-  width: ${(props) => props.theme.generalStyles.fieldWidth};
-  height: ${(props) => props.theme.generalStyles.fieldHeight};
   font-size: ${(props) => props.theme.fontSizes.standard};
   color: ${(props) => props.theme.colors.white};
   border-radius: ${(props) => props.theme.generalStyles.cornerRadius};

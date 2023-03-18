@@ -55,7 +55,7 @@ const CardComponentStyled = styled.main`
       margin-top: 20px;
       width: 100%;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       padding-bottom: 15px;
       cursor: pointer;

@@ -31,6 +31,8 @@ const SignUpFormStyled = styled.form.attrs({
     justify-content: center;
   }
   .log-in-submit {
+    width: ${(props) => props.theme.generalStyles.fieldWidth};
+    height: ${(props) => props.theme.generalStyles.fieldHeight};
     background: ${(props) => props.theme.colors.magenta};
 
     :hover {

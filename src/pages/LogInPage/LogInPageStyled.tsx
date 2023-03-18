@@ -11,10 +11,17 @@ const LogInPageStyled = styled.div.attrs({
 
   .login-page {
     &__hero {
-      margin-bottom: 30px;
-      image-rendering: optimizeSpeed;
-      height: 100%;
-      width: 100%;
+      &-image {
+        image-rendering: optimizeSpeed;
+        min-width: 100%;
+        min-height: 100%;
+      }
+      &-section {
+        margin-bottom: 30px;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+      }
     }
 
     &__body {
@@ -33,6 +40,38 @@ const LogInPageStyled = styled.div.attrs({
 
     &__description {
       font-size: ${(props) => props.theme.fontSizes.detailParagraph};
+    }
+  }
+
+  @media screen and (min-width: 720px) {
+    flex-direction: row;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .login-page {
+      &__hero {
+        &-section {
+          width: 70%;
+          overflow: hidden;
+          height: 90vh;
+          padding-right: 30px;
+        }
+
+        &-image {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &__body {
+        width: 30%;
+        margin: 0 50px;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 `;
