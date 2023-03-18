@@ -4,15 +4,22 @@ import mockedGames from "../../mocks/mockedGames";
 import { server } from "../../mocks/server";
 import Wrapper from "../../mocks/Wrapper";
 import { store } from "../../store";
-import { loadGamesActionCreator } from "../../store/features/gamesSlice/gamesSlice";
-import { loaderOffActionCreator } from "../../store/features/uiSlice/uiSlice";
+import {
+  deleteGameActionCreator,
+  loadGamesActionCreator,
+} from "../../store/features/gamesSlice/gamesSlice";
+import {
+  loaderOffActionCreator,
+  loaderOnActionCreator,
+  showFeedbackActionCreator,
+} from "../../store/features/uiSlice/uiSlice";
 import useGames from "./useGames";
 
 const spiedDispatch = jest.spyOn(store, "dispatch");
 
 beforeEach(() => jest.clearAllMocks());
 
-describe("Give the useGames custom hook", () => {
+describe("Give the useGames custom hook and the getGames function", () => {
   describe("When its 'getGames' function is called", () => {
     test("Then it should dispatch the action of load games", async () => {
       const {
@@ -57,6 +64,73 @@ describe("Give the useGames custom hook", () => {
 
       expect(spiedDispatch).toHaveBeenCalledWith(loaderOffActionCreator());
       expect(spiedDispatch).not.toHaveBeenCalledWith(mockedGames);
+    });
+  });
+});
+
+describe("Give the useGames custom hook and the deleteGames function", () => {
+  describe("When te deleteGame function is called", () => {
+    test("Then it should call the loaderOnActionCreator", async () => {
+      const {
+        result: {
+          current: { deleteGame },
+        },
+      } = renderHook(() => useGames(), { wrapper: Wrapper });
+
+      await deleteGame(mockedGames[0].id);
+
+      expect(spiedDispatch).toHaveBeenCalledWith(loaderOnActionCreator());
+    });
+
+    test("Then it should call the loaderOffActionCreator", async () => {
+      const {
+        result: {
+          current: { deleteGame },
+        },
+      } = renderHook(() => useGames(), { wrapper: Wrapper });
+
+      await deleteGame(mockedGames[0].id);
+
+      expect(spiedDispatch).toHaveBeenCalledWith(loaderOffActionCreator());
+    });
+
+    test("Then it should call the deleteActionCreator", async () => {
+      const {
+        result: {
+          current: { deleteGame },
+        },
+      } = renderHook(() => useGames(), { wrapper: Wrapper });
+
+      await deleteGame(mockedGames[0].id);
+
+      expect(spiedDispatch).toHaveBeenCalledWith(
+        deleteGameActionCreator(mockedGames[0].id)
+      );
+    });
+
+    describe("When the delete action fails by wrong ID", () => {
+      test("Then it should call the showFeedbackActionCreator", async () => {
+        server.resetHandlers(...errorHandlers);
+
+        const {
+          result: {
+            current: { deleteGame },
+          },
+        } = renderHook(() => useGames(), { wrapper: Wrapper });
+
+        const wrongGameId = "3";
+
+        await deleteGame(wrongGameId);
+
+        expect(spiedDispatch).toHaveBeenCalledWith(
+          showFeedbackActionCreator({
+            title: "Opps...",
+            message: "Couldn't delete de game. Please, try again",
+            isSuccess: false,
+            isWrong: true,
+          })
+        );
+      });
     });
   });
 });

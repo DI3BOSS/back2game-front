@@ -14,7 +14,7 @@ import {
   showFeedbackActionCreator,
 } from "../../store/features/uiSlice/uiSlice";
 import { useCallback } from "react";
-import endpoints from "../../router/types";
+import endpoints from "../../router/endpoints";
 
 const useUser = (): UseUserStructure => {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -55,7 +55,7 @@ const useUser = (): UseUserStructure => {
         dispatch(
           showFeedbackActionCreator({
             title: "Opps...",
-            message: "Something was wrong. Please, try again.",
+            message: "Wrong user or password. Please, try again.",
             isSuccess: false,
             isWrong: true,
           })

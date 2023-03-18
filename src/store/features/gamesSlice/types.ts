@@ -1,4 +1,5 @@
 interface GameStructure {
+  id: string;
   title: string;
   platform: string;
   genre: string;
@@ -10,7 +11,6 @@ interface GameStructure {
 export default GameStructure;
 
 export type GamesStructure = GameStructure[];
-
-export interface GetGamesApiResponse {
+export interface GamesApiResponse {
   games: GamesStructure;
 }

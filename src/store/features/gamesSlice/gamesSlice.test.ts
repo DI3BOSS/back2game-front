@@ -1,5 +1,6 @@
 import mockedGames from "../../../mocks/mockedGames";
 import {
+  deleteGameActionCreator,
   gamesIntialState,
   gamesReducer,
   loadGamesActionCreator,
@@ -13,6 +14,17 @@ describe("Given the gamesReducer", () => {
       const newGamesState = gamesReducer(gamesIntialState, loadGamesAction);
 
       expect(newGamesState).toStrictEqual(mockedGames);
+    });
+  });
+
+  describe("When it receives the action of delete a game", () => {
+    test("Then it should return the deleted game", () => {
+      const deleteGameAction = deleteGameActionCreator(mockedGames[0].id);
+      const expectedNewArray = [mockedGames[1]];
+
+      const deletedGame = gamesReducer(mockedGames, deleteGameAction);
+
+      expect(deletedGame).toStrictEqual(expectedNewArray);
     });
   });
 });

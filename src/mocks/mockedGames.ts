@@ -2,6 +2,7 @@ import GameStructure from "../store/features/gamesSlice/types";
 
 const mockedGames: GameStructure[] = [
   {
+    id: "1",
     title: "Mario the Codemaster",
     platform: "PlayStation 5",
     genre: "RPG",
@@ -10,6 +11,7 @@ const mockedGames: GameStructure[] = [
     cover: "image.jpg",
   },
   {
+    id: "2",
     title: "Suicide Squad: Kill the Justice League",
     platform: "PlayStation 5",
     genre: "Action",

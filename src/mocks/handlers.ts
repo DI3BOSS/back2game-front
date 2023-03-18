@@ -6,10 +6,12 @@ const routes: RoutesStructure = {
   users: "/users",
   login: "/login",
   games: "/games",
+  delete: "/games/delete/",
 };
 const mockedStatusCodeOk = 200;
 const mockedStatusCode404 = 404;
 const mockedStatusServerError = 500;
+const mockedStatusCode400 = 400;
 
 const mockedToken = "Whoah!legendofdragoon";
 
@@ -37,6 +39,16 @@ export const handlers = [
       })
     );
   }),
+
+  rest.delete(`${apiUrl}${routes.delete}1`, (req, res, ctx) =>
+    res(
+      ctx.status(mockedStatusCodeOk),
+      ctx.json({
+        payload: undefined,
+        type: "ui/loaderOn",
+      })
+    )
+  ),
 ];
 
 export const errorHandlers = [
@@ -49,4 +61,11 @@ export const errorHandlers = [
   rest.get(`${apiUrl}${routes.games}`, async (req, res, ctx) => {
     return res(ctx.status(mockedStatusServerError));
   }),
+
+  rest.delete(`${apiUrl}${routes.delete}3`, (req, res, ctx) =>
+    res(
+      ctx.status(mockedStatusCode400),
+      ctx.json({ error: "Internal Server Error: Something went wrong." })
+    )
+  ),
 ];
