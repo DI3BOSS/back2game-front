@@ -14,7 +14,7 @@ const CardList = ({ games }: CardListProps): JSX.Element => {
       <h2 className="shown-games">Showing {games.length} games</h2>
       <CardListStyled>
         {games.map((game) => (
-          <li key={game.cover} className="card">
+          <li key={game.id} className="card">
             <Card
               game={game}
               deleteButton={<DeleteIcon />}
