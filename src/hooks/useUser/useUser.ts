@@ -55,7 +55,7 @@ const useUser = (): UseUserStructure => {
         dispatch(
           showFeedbackActionCreator({
             title: "Opps...",
-            message: "Something was wrong. Please, try again.",
+            message: "Wrong user or password. Please, try again.",
             isSuccess: false,
             isWrong: true,
           })
