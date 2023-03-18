@@ -1,4 +1,4 @@
-export interface Routes {
+interface Routes {
   logIn: string;
   myGames: string;
   root: string;
@@ -7,3 +7,4 @@ export interface Routes {
   apiLogIn: string;
   apiDelete: string;
 }
+export default Routes;
