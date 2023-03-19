@@ -49,7 +49,7 @@ const useUser = (): UseUserStructure => {
 
         dispatch(loaderOffActionCreator());
 
-        redirect(endpoints.myGames);
+        redirect(endpoints.root);
       } catch {
         dispatch(loaderOffActionCreator());
         dispatch(

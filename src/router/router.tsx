@@ -12,11 +12,11 @@ const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <LogInPage />,
+        element: <HomePage />,
       },
       {
-        path: endpoints.myGames,
-        element: <HomePage />,
+        path: endpoints.logIn,
+        element: <LogInPage />,
       },
       {
         path: endpoints.notFound,
