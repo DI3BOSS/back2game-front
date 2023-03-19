@@ -8,7 +8,7 @@ const SignUpFormStyled = styled.form.attrs({
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 260px;
+  height: 300px;
 
   input {
     padding-left: 10px;
@@ -34,6 +34,7 @@ const SignUpFormStyled = styled.form.attrs({
     width: ${(props) => props.theme.generalStyles.fieldWidth};
     height: ${(props) => props.theme.generalStyles.fieldHeight};
     background: ${(props) => props.theme.colors.magenta};
+    margin-bottom: 40px;
 
     :hover {
       background: ${(props) => props.theme.colors.cyan};

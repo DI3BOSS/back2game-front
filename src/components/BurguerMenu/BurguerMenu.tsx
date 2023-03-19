@@ -37,18 +37,21 @@ const BurguerMenu = ({ className }: BurguerMenuProps): JSX.Element => {
             data-testid="burguer-menu"
           >
             <path
+              className="burguer__top-bread"
               fillRule="evenodd"
               clipRule="evenodd"
               d="M3.5 12.5C3.5 12.0858 3.89175 11.75 4.375 11.75H23.625C24.1082 11.75 24.5 12.0858 24.5 12.5C24.5 12.9142 24.1082 13.25 23.625 13.25H4.375C3.89175 13.25 3.5 12.9142 3.5 12.5Z"
               fill="white"
             />
             <path
+              className="burguer__meat"
               fillRule="evenodd"
               clipRule="evenodd"
               d="M3.5 6.5C3.5 6.08579 3.89175 5.75 4.375 5.75H17.5C17.9832 5.75 18.375 6.08579 18.375 6.5C18.375 6.91421 17.9832 7.25 17.5 7.25H4.375C3.89175 7.25 3.5 6.91421 3.5 6.5Z"
               fill="white"
             />
             <path
+              className="burguer__bottom-bread"
               fillRule="evenodd"
               clipRule="evenodd"
               d="M3.5 18.5C3.5 18.0858 3.89175 17.75 4.375 17.75H17.5C17.9832 17.75 18.375 18.0858 18.375 18.5C18.375 18.9142 17.9832 19.25 17.5 19.25H4.375C3.89175 19.25 3.5 18.9142 3.5 18.5Z"

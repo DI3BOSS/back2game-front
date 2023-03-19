@@ -3,7 +3,7 @@ import ButtonStyled from "./ButtonStyled";
 interface ButtonProps {
   className?: string;
   text?: string;
-  icon?: JSX.Element;
+  icon?: JSX.Element | string;
   onClick?: () => void;
 }
 

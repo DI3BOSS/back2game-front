@@ -16,7 +16,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: baseline;
-  background-color: rgba(43, 43, 43, 1);
+  background: rgba(40, 40, 40, 1);
+  background: linear-gradient(0deg, rgb(20, 20, 20, 1) 40%, rgba(113,61,85,1) 100%);
   color: #fff;
 }
 
