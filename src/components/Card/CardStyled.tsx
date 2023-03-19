@@ -10,7 +10,7 @@ const CardComponentStyled = styled.main`
     &__image {
       flex: 1;
       padding: 10px;
-      background: ${(props) => props.theme.colors.black};
+      background: ${(props) => props.theme.colors.grey};
       border-radius: ${(props) => props.theme.generalStyles.cornerRadius}
         ${(props) => props.theme.generalStyles.cornerRadius} 0 0;
       display: flex;
@@ -25,11 +25,16 @@ const CardComponentStyled = styled.main`
     }
     &__info {
       flex: 1;
-      background: ${(props) => props.theme.colors.violet};
+      background: ${(props) => props.theme.colors.black};
+
       border-radius: 0 0 20px
         ${(props) => props.theme.generalStyles.cornerRadius};
       color: ${(props) => props.theme.colors.white};
       padding: 10px 20px;
+
+      &--owned {
+        background: ${(props) => props.theme.colors.violet};
+      }
     }
   }
 
