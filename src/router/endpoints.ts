@@ -8,6 +8,7 @@ const endpoints: Routes = {
   apiGames: "/games",
   apiLogIn: "/users/login",
   apiDelete: "/games/delete/",
+  apiCreate: "games/upload",
 };
 
 export default endpoints;

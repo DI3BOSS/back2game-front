@@ -6,5 +6,6 @@ interface Routes {
   apiGames: string;
   apiLogIn: string;
   apiDelete: string;
+  apiCreate: string;
 }
 export default Routes;
