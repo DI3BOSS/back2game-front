@@ -1,7 +1,7 @@
 import renderWithProviders from "../../testUtils";
 import Card from "./Card";
 import { ReactComponent as ViewIcon } from "../../assets/icons/view.svg";
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 
 describe("Given the Card component", () => {
   const mockedGame = {
@@ -12,8 +12,8 @@ describe("Given the Card component", () => {
     description:
       "Fuentes cercanas al proyecto de Suicide Squad: Kill The Justice League han adelantado que el nuevo juego de Rocksteady y Warner Bros. Games retrasará otra vez su lanzamiento. Así lo ha informado el periodista Jason Schreier en un artículo de Bloomberg en el que relaciona esta decisión con las recientes y duras críticas que sufrió el juego de superhéroes tras presentar un extenso gameplay durante el último State of Play de Sony.",
     price: "54.95",
-    cover:
-      "https://static.xtralife.com/conversions/4MCP-5M85426180-medium_w640_h480_q75-ps5suicidesquad-1670580108.webp",
+    cover: "image.jpg",
+    owner: "di3boss",
   };
 
   const mockedIcon: JSX.Element = <ViewIcon />;
@@ -40,7 +40,7 @@ describe("Given the Card component", () => {
     });
 
     test("Then it should show the price of a game", () => {
-      const expectedPrice = mockedGame.price;
+      const expectedPrice = `${mockedGame.price} €`;
 
       renderWithProviders(<Card game={mockedGame} viewButton={mockedIcon} />);
 
@@ -57,6 +57,29 @@ describe("Given the Card component", () => {
       const gameName = screen.getByAltText(expectedAltText);
 
       expect(gameName).toBeInTheDocument();
+    });
+
+    test("Then it should show the delete button when the logged user is the game's owner", async () => {
+      const buttonName = "delete";
+
+      renderWithProviders(
+        <Card
+          game={mockedGame}
+          viewButton={mockedIcon}
+          deleteButton={<span>delete</span>}
+        />,
+        {
+          preloadedState: {
+            user: { username: mockedGame.owner, isLogged: true, token: "" },
+          },
+        }
+      );
+
+      const deleteButton = screen.getByRole("button", { name: buttonName });
+
+      fireEvent.click(deleteButton);
+
+      expect(deleteButton).toBeInTheDocument();
     });
   });
 });

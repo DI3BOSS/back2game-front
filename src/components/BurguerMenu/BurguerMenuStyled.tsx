@@ -4,10 +4,46 @@ const BurguerMenuStyled = styled.div`
   .burguer {
     color: ${(props) => props.theme.colors.white};
     font-size: 36px;
+
     &__closer {
       position: fixed;
       top: 15px;
       right: 35px;
+      animation: breathing 2s ease-in-out infinite alternate 0.2s;
+    }
+
+    &__top-bread {
+      animation: breathing 2s ease-in-out infinite alternate 0.4s;
+    }
+
+    &__meat {
+      animation: breathing 2s ease-in-out infinite alternate 0.2s;
+    }
+
+    &__bottom-bread {
+      animation: breathing 2s ease-in-out infinite alternate 0.6s;
+    }
+  }
+
+  @keyframes breathing {
+    from {
+      transform: scale(1.06);
+    }
+    to {
+      transform: scale(0.96);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .burguer {
+      &__closer,
+      &__top-bread,
+      &__meat,
+      &__bottom-bread,
+      &__closer {
+        animation-duration: 0s !important;
+        transform: none !important;
+      }
     }
   }
   .menu {

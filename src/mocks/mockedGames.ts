@@ -9,6 +9,7 @@ const mockedGames: GameStructure[] = [
     description: "short description.",
     price: "69.95",
     cover: "image.jpg",
+    owner: "di3boss",
   },
   {
     id: "2",
@@ -18,6 +19,7 @@ const mockedGames: GameStructure[] = [
     description: "short description",
     price: "54.95",
     cover: "image2.jpg",
+    owner: "di3boss",
   },
 ];
 

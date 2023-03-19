@@ -6,6 +6,7 @@ interface GameStructure {
   description: string;
   price: string;
   cover: string;
+  owner: string;
 }
 
 export default GameStructure;
