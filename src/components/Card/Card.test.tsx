@@ -2,6 +2,7 @@ import renderWithProviders from "../../testUtils";
 import Card from "./Card";
 import { ReactComponent as ViewIcon } from "../../assets/icons/view.svg";
 import { fireEvent, screen } from "@testing-library/react";
+import Button from "../Button/Button";
 
 describe("Given the Card component", () => {
   const mockedGame = {
@@ -66,7 +67,7 @@ describe("Given the Card component", () => {
         <Card
           game={mockedGame}
           viewButton={mockedIcon}
-          deleteButton={<span>delete</span>}
+          deleteButton={<Button icon={mockedIcon} ariaLabel="delete" />}
         />,
         {
           preloadedState: {
