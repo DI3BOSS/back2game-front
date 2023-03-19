@@ -41,15 +41,15 @@ const Card = ({
             <span className="price__title">Price</span>&nbsp;{price}&nbsp;€
           </div>
           <div className="game-info__actions">
-            <Button icon={viewButton} />
+            <Button icon={viewButton} ariaLabel="view game" />
             {owner === username && (
               <Button
                 icon={deleteButton}
                 onClick={() => deleteGame(id)}
-                data-testid
+                ariaLabel="delete game"
               />
             )}
-            <Button icon={editButton} />
+            <Button icon={editButton} ariaLabel="edit game" />
           </div>
         </div>
       </div>
