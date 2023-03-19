@@ -15,9 +15,9 @@ const renderWithProviders = (
   {
     preloadedState = {
       user: {
-        username: "",
-        token: "",
-        isLogged: false,
+        username: "di3boss",
+        token: "mockedtoken",
+        isLogged: true,
       },
       ui: {
         isLoading: false,
