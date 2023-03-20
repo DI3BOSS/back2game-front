@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CardComponentStyled = styled.main`
+const CardComponentStyled = styled.article`
   width: 350px;
   display: flex;
   flex-direction: column;
