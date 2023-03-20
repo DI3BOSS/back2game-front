@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import renderWithProviders from "../../testUtils";
+import renderWithProviders from "../../../testUtils";
 import LogInPage from "./LogInPage";
 
 jest.mock("react-router-dom", () => ({

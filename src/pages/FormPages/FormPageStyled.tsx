@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
-const LogInPageStyled = styled.div.attrs({
-  className: "login-page",
-})`
+const FormPageStyled = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 85px;
   align-items: center;
   font-family: ${(props) => props.theme.fonts.mainFont};
 
-  .login-page {
+  .form-page {
     &__hero {
       &-image {
         image-rendering: optimizeSpeed;
@@ -50,7 +48,7 @@ const LogInPageStyled = styled.div.attrs({
       display: none;
     }
 
-    .login-page {
+    .form-page {
       &__hero {
         &-section {
           width: 70%;
@@ -76,4 +74,4 @@ const LogInPageStyled = styled.div.attrs({
   }
 `;
 
-export default LogInPageStyled;
+export default FormPageStyled;

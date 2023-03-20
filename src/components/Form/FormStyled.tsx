@@ -1,14 +1,23 @@
 import styled from "styled-components";
 
-const SignUpFormStyled = styled.form.attrs({
-  className: "signup-form",
-})`
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 300px;
+const FormStyled = styled.form`
+  .login-form-type {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+  }
+
+  .upload-form-type {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 700px;
+  }
 
   input {
     padding-left: 10px;
@@ -18,7 +27,7 @@ const SignUpFormStyled = styled.form.attrs({
     margin-left: -50px;
   }
 
-  .login-form__field {
+  .form__field {
     display: flex;
     align-items: center;
     width: ${(props) => props.theme.generalStyles.fieldWidth};
@@ -30,7 +39,7 @@ const SignUpFormStyled = styled.form.attrs({
     font-family: ${(props) => props.theme.fonts.mainFont};
     justify-content: center;
   }
-  .log-in-submit {
+  .submit {
     width: ${(props) => props.theme.generalStyles.fieldWidth};
     height: ${(props) => props.theme.generalStyles.fieldHeight};
     background: ${(props) => props.theme.colors.magenta};
@@ -42,4 +51,4 @@ const SignUpFormStyled = styled.form.attrs({
   }
 `;
 
-export default SignUpFormStyled;
+export default FormStyled;

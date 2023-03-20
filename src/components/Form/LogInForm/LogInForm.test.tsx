@@ -1,12 +1,12 @@
 import { screen, waitFor } from "@testing-library/react";
 import LogInForm from "./LogInForm";
 import userEvent from "@testing-library/user-event";
-import renderWithProviders from "../../testUtils";
-import { UserLoginCredentials } from "../../types";
+import renderWithProviders from "../../../testUtils";
+import { UserLoginCredentials } from "../../../types";
 
 const mockedUserLogin = jest.fn();
 
-jest.mock("../../hooks/useUser/useUser", () => () => ({
+jest.mock("../../../hooks/useUser/useUser", () => () => ({
   logInUser: mockedUserLogin,
 }));
 
