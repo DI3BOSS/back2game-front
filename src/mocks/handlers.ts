@@ -7,11 +7,13 @@ const routes: RoutesStructure = {
   login: "/login",
   games: "/games",
   delete: "/games/delete/",
+  create: "/games/upload",
 };
-const mockedStatusCodeOk = 200;
-const mockedStatusCode404 = 404;
-const mockedStatusServerError = 500;
-const mockedStatusCode400 = 400;
+const StatusCodeOk = 200;
+const statusCodeCreated = 201;
+const StatusCode404 = 404;
+const StatusServerError = 500;
+const StatusCode400 = 400;
 
 const mockedToken = "Whoah!legendofdragoon";
 
@@ -22,7 +24,7 @@ export const handlers = [
     `${apiUrl}${routes.users}${routes.login}`,
     async (request, response, ctx) => {
       return response(
-        ctx.status(mockedStatusCodeOk),
+        ctx.status(StatusCodeOk),
         ctx.json({
           token: mockedToken,
         })
@@ -32,7 +34,7 @@ export const handlers = [
 
   rest.get(`${apiUrl}${routes.games}`, async (req, res, ctx) => {
     return res(
-      ctx.status(mockedStatusCodeOk),
+      ctx.status(StatusCodeOk),
 
       ctx.json({
         games: mockedGames,
@@ -42,12 +44,16 @@ export const handlers = [
 
   rest.delete(`${apiUrl}${routes.delete}1`, (req, res, ctx) =>
     res(
-      ctx.status(mockedStatusCodeOk),
+      ctx.status(StatusCodeOk),
       ctx.json({
         payload: undefined,
         type: "ui/loaderOn",
       })
     )
+  ),
+
+  rest.post(`${apiUrl}${routes.create}`, (req, res, ctx) =>
+    res(ctx.status(statusCodeCreated))
   ),
 ];
 
@@ -55,16 +61,23 @@ export const errorHandlers = [
   rest.post(
     `${apiUrl}${routes.users}${routes.login}`,
     async (req, res, ctx) => {
-      return res(ctx.status(mockedStatusCode404));
+      return res(ctx.status(StatusCode404));
     }
   ),
   rest.get(`${apiUrl}${routes.games}`, async (req, res, ctx) => {
-    return res(ctx.status(mockedStatusServerError));
+    return res(ctx.status(StatusServerError));
   }),
 
   rest.delete(`${apiUrl}${routes.delete}3`, (req, res, ctx) =>
     res(
-      ctx.status(mockedStatusCode400),
+      ctx.status(StatusCode400),
+      ctx.json({ error: "Internal Server Error: Something went wrong." })
+    )
+  ),
+
+  rest.post(`${apiUrl}${routes.create}`, (req, res, ctx) =>
+    res(
+      ctx.status(StatusServerError),
       ctx.json({ error: "Internal Server Error: Something went wrong." })
     )
   ),
