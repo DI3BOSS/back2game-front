@@ -4,8 +4,9 @@ import {
   deleteGameActionCreator,
   loadGamesActionCreator,
 } from "../../store/features/gamesSlice/gamesSlice";
-import GameStructure, {
+import {
   GamesApiResponse,
+  InitialGameStructure,
 } from "../../store/features/gamesSlice/types";
 import {
   loaderOffActionCreator,
@@ -84,7 +85,7 @@ const useGames = () => {
   );
 
   const createGame = useCallback(
-    async (game: GameStructure) => {
+    async (game: InitialGameStructure) => {
       try {
         dispatch(loaderOnActionCreator());
 

@@ -1,4 +1,4 @@
-import GameStructure from "../store/features/gamesSlice/types";
+import { GameStructure } from "../store/features/gamesSlice/types";
 
 const mockedGames: GameStructure[] = [
   {

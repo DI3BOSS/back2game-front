@@ -125,7 +125,7 @@ describe("Give the useGames custom hook and the deleteGames function", () => {
         expect(spiedDispatch).toHaveBeenCalledWith(
           showFeedbackActionCreator({
             title: "Opps...",
-            message: "Couldn't delete de game. Please, try again",
+            message: "Couldn't delete the game. Please, try again",
             isSuccess: false,
             isWrong: true,
           })

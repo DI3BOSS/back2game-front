@@ -1,6 +1,6 @@
 interface Routes {
   logIn: string;
-  myGames: string;
+  uploadGame: string;
   root: string;
   notFound: string;
   apiGames: string;
