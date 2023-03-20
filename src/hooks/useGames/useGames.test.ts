@@ -8,6 +8,7 @@ import {
   deleteGameActionCreator,
   loadGamesActionCreator,
 } from "../../store/features/gamesSlice/gamesSlice";
+import { GameStructure } from "../../store/features/gamesSlice/types";
 import {
   loaderOffActionCreator,
   loaderOnActionCreator,
@@ -68,7 +69,7 @@ describe("Give the useGames custom hook and the getGames function", () => {
   });
 });
 
-describe("Give the useGames custom hook and the deleteGames function", () => {
+describe("Give the useGames custom hook and the deleteGame function", () => {
   describe("When te deleteGame function is called", () => {
     test("Then it should call the loaderOnActionCreator", async () => {
       const {
@@ -94,7 +95,7 @@ describe("Give the useGames custom hook and the deleteGames function", () => {
       expect(spiedDispatch).toHaveBeenCalledWith(loaderOffActionCreator());
     });
 
-    test("Then it should call the deleteActionCreator", async () => {
+    test("Then it should call the deleteGameActionCreator", async () => {
       const {
         result: {
           current: { deleteGame },
@@ -131,6 +132,81 @@ describe("Give the useGames custom hook and the deleteGames function", () => {
           })
         );
       });
+    });
+  });
+});
+
+describe("Give the useGames custom hook and the createGame function", () => {
+  describe("When te create function is called", () => {
+    test("Then it should call the loaderOnActionCreator", async () => {
+      const {
+        result: {
+          current: { createGame },
+        },
+      } = renderHook(() => useGames(), { wrapper: Wrapper });
+
+      await createGame(mockedGames[0]);
+
+      expect(spiedDispatch).toHaveBeenCalledWith(loaderOnActionCreator());
+    });
+
+    test("Then it should call the loaderOffActionCreator", async () => {
+      const {
+        result: {
+          current: { createGame },
+        },
+      } = renderHook(() => useGames(), { wrapper: Wrapper });
+
+      await createGame(mockedGames[0]);
+
+      expect(spiedDispatch).toHaveBeenCalledWith(loaderOffActionCreator());
+    });
+
+    test("Then it should call the createGameActionCreator", async () => {
+      const {
+        result: {
+          current: { createGame },
+        },
+      } = renderHook(() => useGames(), { wrapper: Wrapper });
+
+      await createGame(mockedGames[0]);
+
+      expect(spiedDispatch).toHaveBeenCalled();
+    });
+  });
+
+  describe("When the create action fails", () => {
+    test("Then it should call the showFeedbackActionCreator", async () => {
+      server.resetHandlers(...errorHandlers);
+
+      const {
+        result: {
+          current: { createGame },
+        },
+      } = renderHook(() => useGames(), { wrapper: Wrapper });
+
+      const wrongGame: GameStructure = {
+        id: "",
+        owner: "",
+        platform: "",
+        genre: "",
+        description: "",
+        price: "",
+        cover: "",
+        title: "",
+      };
+
+      await createGame(wrongGame);
+
+      expect(spiedDispatch).toHaveBeenNthCalledWith(
+        3,
+        showFeedbackActionCreator({
+          title: "Opps...",
+          message: "Couldn't create the game. Please, try again",
+          isSuccess: false,
+          isWrong: true,
+        })
+      );
     });
   });
 });
