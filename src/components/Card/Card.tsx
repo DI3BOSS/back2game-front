@@ -1,5 +1,5 @@
 import useGames from "../../hooks/useGames/useGames";
-import GameStructure from "../../store/features/gamesSlice/types";
+import { GameStructure } from "../../store/features/gamesSlice/types";
 import { useAppSelector } from "../../store/hooks";
 import Button from "../Button/Button";
 import CardStyled from "./CardStyled";

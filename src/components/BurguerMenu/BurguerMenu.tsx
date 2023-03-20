@@ -8,6 +8,7 @@ interface BurguerMenuProps {
 
 const BurguerMenu = ({ className }: BurguerMenuProps): JSX.Element => {
   const dispatch = useAppDispatch();
+  const { username } = useAppSelector((state) => state.user);
 
   const {
     toggleBurguer: { isOpen },
@@ -82,13 +83,20 @@ const BurguerMenu = ({ className }: BurguerMenuProps): JSX.Element => {
               />
             </svg>
           </button>
-          <div className="menu">
-            <a href="/login" className="login">
-              Log in, bro!
-            </a>
-            <a href="/" className="home">
-              Back to home!
-            </a>
+          <div className="menu-switcher" onClick={handleClose}>
+            <div className="menu">
+              <a href="/login" className="login">
+                Log in, bro!
+              </a>
+              {username && (
+                <a href="/games/upload" className="upload">
+                  Upload you game!
+                </a>
+              )}
+              <a href="/" className="home">
+                Back to home!
+              </a>
+            </div>
           </div>
         </>
       )}

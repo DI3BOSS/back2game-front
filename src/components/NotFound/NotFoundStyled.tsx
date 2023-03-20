@@ -60,6 +60,17 @@ const NotFoundStyled = styled.div`
     flex-direction: column;
     justify-content: space-around;
 
+    &__go-back {
+      width: ${(props) => props.theme.generalStyles.fieldWidth};
+      height: ${(props) => props.theme.generalStyles.fieldHeight};
+      background: ${(props) => props.theme.colors.magenta};
+      margin-bottom: 40px;
+
+      :hover {
+        background: ${(props) => props.theme.colors.cyan};
+      }
+    }
+
     &__number {
       display: inline-flex;
       justify-content: center;

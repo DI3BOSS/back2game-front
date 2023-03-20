@@ -6,7 +6,7 @@ export interface UserStateStructure extends UserStructure {
   isLogged: boolean;
 }
 export interface UserStructure {
-  username: string;
+  username: string | null;
   token: string;
 }
 export interface UserLoginCredentials {

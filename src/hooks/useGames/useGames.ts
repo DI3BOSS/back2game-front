@@ -4,7 +4,10 @@ import {
   deleteGameActionCreator,
   loadGamesActionCreator,
 } from "../../store/features/gamesSlice/gamesSlice";
-import { GamesApiResponse } from "../../store/features/gamesSlice/types";
+import {
+  GamesApiResponse,
+  InitialGameStructure,
+} from "../../store/features/gamesSlice/types";
 import {
   loaderOffActionCreator,
   loaderOnActionCreator,
@@ -16,6 +19,7 @@ const useGames = () => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const getGamesEndpoint = endpoints.apiGames;
   const deleteGameEndpoint = endpoints.apiDelete;
+  const createGameEndpoint = endpoints.apiCreate;
 
   const { token } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
@@ -47,34 +51,73 @@ const useGames = () => {
     }
   }, [apiUrl, dispatch, getGamesEndpoint]);
 
-  const deleteGame = async (gameId: string) => {
-    try {
-      dispatch(loaderOnActionCreator());
+  const deleteGame = useCallback(
+    async (gameId: string) => {
+      try {
+        dispatch(loaderOnActionCreator());
 
-      const response = await fetch(`${apiUrl}${deleteGameEndpoint}${gameId}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
+        const response = await fetch(
+          `${apiUrl}${deleteGameEndpoint}${gameId}`,
+          {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
 
-      if (!response.ok) {
-        throw new Error("flamita");
+        if (!response.ok) {
+          throw new Error("Deleting game error");
+        }
+        dispatch(loaderOffActionCreator());
+        dispatch(deleteGameActionCreator(gameId));
+      } catch (error) {
+        dispatch(loaderOffActionCreator());
+        dispatch(
+          showFeedbackActionCreator({
+            title: "Opps...",
+            message: "Couldn't delete the game. Please, try again",
+            isSuccess: false,
+            isWrong: true,
+          })
+        );
       }
-      dispatch(loaderOffActionCreator());
-      dispatch(deleteGameActionCreator(gameId));
-    } catch (error) {
-      dispatch(loaderOffActionCreator());
-      dispatch(
-        showFeedbackActionCreator({
-          title: "Opps...",
-          message: "Couldn't delete de game. Please, try again",
-          isSuccess: false,
-          isWrong: true,
-        })
-      );
-    }
-  };
+    },
+    [apiUrl, deleteGameEndpoint, dispatch, token]
+  );
 
-  return { getGames, deleteGame };
+  const createGame = useCallback(
+    async (game: InitialGameStructure) => {
+      try {
+        dispatch(loaderOnActionCreator());
+
+        const response = await fetch(`${apiUrl}${createGameEndpoint}`, {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(game),
+        });
+
+        if (!response.ok) {
+          throw new Error("Creating game error");
+        }
+        dispatch(loaderOffActionCreator());
+      } catch (error) {
+        dispatch(loaderOffActionCreator());
+        dispatch(
+          showFeedbackActionCreator({
+            title: "Opps...",
+            message: "Couldn't create the game. Please, try again",
+            isSuccess: false,
+            isWrong: true,
+          })
+        );
+      }
+    },
+    [apiUrl, createGameEndpoint, dispatch, token]
+  );
+
+  return { getGames, deleteGame, createGame };
 };
 
 export default useGames;

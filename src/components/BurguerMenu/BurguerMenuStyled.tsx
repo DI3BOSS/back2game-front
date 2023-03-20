@@ -12,16 +12,8 @@ const BurguerMenuStyled = styled.div`
       animation: breathing 2s ease-in-out infinite alternate 0.2s;
     }
 
-    &__top-bread {
-      animation: breathing 2s ease-in-out infinite alternate 0.4s;
-    }
-
     &__meat {
       animation: breathing 2s ease-in-out infinite alternate 0.2s;
-    }
-
-    &__bottom-bread {
-      animation: breathing 2s ease-in-out infinite alternate 0.6s;
     }
   }
 
@@ -58,6 +50,11 @@ const BurguerMenuStyled = styled.div`
     right: 35px;
     position: fixed;
     border-top: 2px solid ${(props) => props.theme.colors.yellow};
+
+    &-switcher {
+      height: 100vh;
+      width: 100vw;
+    }
   }
   .close {
     color: #ffffff;
@@ -78,6 +75,13 @@ const BurguerMenuStyled = styled.div`
   }
   .home {
     color: ${(props) => props.theme.colors.white};
+
+    &:hover {
+      color: ${(props) => props.theme.colors.yellow};
+    }
+  }
+  .upload {
+    color: ${(props) => props.theme.colors.magenta};
 
     &:hover {
       color: ${(props) => props.theme.colors.yellow};

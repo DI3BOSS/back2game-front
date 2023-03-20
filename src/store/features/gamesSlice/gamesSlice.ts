@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { GamesStructure } from "./types";
+import { GameStructure, GamesStructure } from "./types";
 
 export const gamesIntialState: GamesStructure = [];
 
@@ -16,12 +16,17 @@ const gamesSlice = createSlice({
       currentGamesState,
       { payload: gameId }: PayloadAction<string>
     ): GamesStructure => {
-      const gameToDelete = currentGamesState.filter(
+      const stateAfterDelete = currentGamesState.filter(
         (game) => game.id !== gameId
       );
 
-      return gameToDelete;
+      return stateAfterDelete;
     },
+
+    createGame: (
+      currentGamesState,
+      action: PayloadAction<GameStructure>
+    ): GamesStructure => [...currentGamesState, action.payload],
   },
 });
 
@@ -29,4 +34,5 @@ export const gamesReducer = gamesSlice.reducer;
 export const {
   loadGames: loadGamesActionCreator,
   deleteGame: deleteGameActionCreator,
+  createGame: createGameActionCreator,
 } = gamesSlice.actions;
