@@ -1,24 +1,12 @@
-import { SyntheticEvent, useEffect, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { ReactComponent as Icon } from "../../../assets/icons/rocket.svg";
 import Button from "../../Button/Button";
 import FormStyled from "../FormStyled";
 import { InitialGameStructure } from "../../../store/features/gamesSlice/types";
 import useGames from "../../../hooks/useGames/useGames";
-import { useAppSelector } from "../../../store/hooks";
-import { useNavigate } from "react-router-dom";
-import endpoints from "../../../router/endpoints";
 
 const UploadGameFrom = (): JSX.Element => {
   const { createGame } = useGames();
-
-  const { username } = useAppSelector((state) => state.user);
-  const redirect = useNavigate();
-
-  useEffect(() => {
-    if (!username) {
-      redirect(endpoints.root);
-    }
-  });
 
   const initialNewGameState: InitialGameStructure = {
     title: "",
