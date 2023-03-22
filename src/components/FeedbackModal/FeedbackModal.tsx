@@ -46,14 +46,26 @@ const FeedbackModal = ({
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      className="close-button"
-                      d="M30.975 21.03L33.075 18.93M18.925 33.07L25.8 26.195M33.075 33.08L18.925 18.93M6 11C2.875 15.175 1 20.375 1 26C1 39.8 12.2 51 26 51C39.8 51 51 39.8 51 26C51 12.2 39.8 1 26 1C22.425 1 19 1.75 15.925 3.125"
-                      stroke={isSuccess ? "#00b4d6" : "#e63f8d"}
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                    {isSuccess && (
+                      <path
+                        className="close-button"
+                        d="M30.975 21.03L33.075 18.93M18.925 33.07L25.8 26.195M33.075 33.08L18.925 18.93M6 11C2.875 15.175 1 20.375 1 26C1 39.8 12.2 51 26 51C39.8 51 51 39.8 51 26C51 12.2 39.8 1 26 1C22.425 1 19 1.75 15.925 3.125"
+                        stroke="#00b4d6"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    )}
+                    {isWrong && (
+                      <path
+                        className="close-button"
+                        d="M30.975 21.03L33.075 18.93M18.925 33.07L25.8 26.195M33.075 33.08L18.925 18.93M6 11C2.875 15.175 1 20.375 1 26C1 39.8 12.2 51 26 51C39.8 51 51 39.8 51 26C51 12.2 39.8 1 26 1C22.425 1 19 1.75 15.925 3.125"
+                        stroke="#e63f8d"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    )}
                   </svg>
                 }
                 className={"modal-feedback__close-button"}

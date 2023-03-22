@@ -23,7 +23,10 @@ const Layout = (): JSX.Element => {
       <Header />
       <main>
         {isLoading && <Loader />}
-        {(isWrong || isSuccess) && (
+        {isWrong && (
+          <FeedbackModal title={title} message={message} icon={<Icon />} />
+        )}
+        {isSuccess && (
           <FeedbackModal title={title} message={message} icon={<Icon />} />
         )}
         <Outlet />
