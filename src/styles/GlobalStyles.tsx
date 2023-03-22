@@ -17,7 +17,7 @@ body {
   justify-content: center;
   align-items: baseline;
   background: rgba(40, 40, 40, 1);
-  background: linear-gradient(0deg, rgb(20, 20, 20, 1) 40%, rgba(113,61,85,1) 100%);
+  background: linear-gradient(270deg, #3f2033 0%, rgba(115,65,85,1) 100%);
   color: #fff;
 }
 

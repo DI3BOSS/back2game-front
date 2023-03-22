@@ -4,7 +4,6 @@ export interface GamesApiResponse {
 }
 export interface GameStructure extends InitialGameStructure {
   id: string;
-  owner: string;
 }
 
 export interface InitialGameStructure {
@@ -14,4 +13,5 @@ export interface InitialGameStructure {
   description: string;
   price: string;
   cover: string;
+  owner: string;
 }

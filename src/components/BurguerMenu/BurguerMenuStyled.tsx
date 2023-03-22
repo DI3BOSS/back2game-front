@@ -67,7 +67,7 @@ const BurguerMenuStyled = styled.div`
     margin-top: 85px;
   }
   .login {
-    color: ${(props) => props.theme.colors.cyan};
+    color: ${(props) => props.theme.colors.magenta};
 
     &:hover {
       color: ${(props) => props.theme.colors.yellow};
@@ -81,7 +81,7 @@ const BurguerMenuStyled = styled.div`
     }
   }
   .upload {
-    color: ${(props) => props.theme.colors.magenta};
+    color: ${(props) => props.theme.colors.cyan};
 
     &:hover {
       color: ${(props) => props.theme.colors.yellow};

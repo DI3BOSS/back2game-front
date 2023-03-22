@@ -1,3 +1,4 @@
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 import useGames from "../../hooks/useGames/useGames";
 import { GameStructure } from "../../store/features/gamesSlice/types";
 import { useAppSelector } from "../../store/hooks";
@@ -24,7 +25,9 @@ const Card = ({
   return (
     <CardStyled>
       <div className="card__image">
-        <img src={cover} alt={title} className="card__image-cover"></img>
+        <LazyLoadComponent threshold={100}>
+          <img src={cover} alt={title} className="card__image-cover"></img>
+        </LazyLoadComponent>
       </div>
       <div
         className={`card__info game-info ${
@@ -43,13 +46,15 @@ const Card = ({
           <div className="game-info__actions">
             <Button icon={viewButton} ariaLabel="view game" />
             {owner === username && (
-              <Button
-                icon={deleteButton}
-                onClick={() => deleteGame(id)}
-                ariaLabel="delete game"
-              />
+              <>
+                <Button
+                  icon={deleteButton}
+                  onClick={() => deleteGame(id)}
+                  ariaLabel="delete game"
+                />
+                <Button icon={editButton} ariaLabel="edit game" />
+              </>
             )}
-            <Button icon={editButton} ariaLabel="edit game" />
           </div>
         </div>
       </div>

@@ -2,8 +2,8 @@ import { SyntheticEvent, useState } from "react";
 import { ReactComponent as Icon } from "../../../assets/icons/rocket.svg";
 import Button from "../../Button/Button";
 import FormStyled from "../FormStyled";
-import { InitialGameStructure } from "../../../store/features/gamesSlice/types";
 import useGames from "../../../hooks/useGames/useGames";
+import { InitialGameStructure } from "../../../store/features/gamesSlice/types";
 
 const UploadGameFrom = (): JSX.Element => {
   const { createGame } = useGames();
@@ -15,6 +15,7 @@ const UploadGameFrom = (): JSX.Element => {
     description: "",
     price: "",
     cover: "",
+    owner: "",
   };
 
   const [formData, setFormData] = useState(initialNewGameState);
@@ -75,7 +76,7 @@ const UploadGameFrom = (): JSX.Element => {
           ></input>
         </label>
         <label htmlFor="description" className="form__field">
-          <textarea
+          <input
             onChange={handleChangeEvent}
             value={formData.description}
             id="description"
@@ -83,7 +84,7 @@ const UploadGameFrom = (): JSX.Element => {
             className="form__input"
             placeholder="Description"
             required
-          ></textarea>
+          ></input>
         </label>
         <label htmlFor="price" className="form__field">
           <input
@@ -109,6 +110,7 @@ const UploadGameFrom = (): JSX.Element => {
             required
           ></input>
         </label>
+
         <Button text="Upload Game!" icon={<Icon />} className={"submit"} />
       </div>
     </FormStyled>

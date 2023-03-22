@@ -3,7 +3,7 @@ import styled from "styled-components";
 const FormPageStyled = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 85px;
+  margin-top: 80px;
   align-items: center;
   font-family: ${(props) => props.theme.fonts.mainFont};
 
@@ -15,7 +15,6 @@ const FormPageStyled = styled.div`
         min-height: 100%;
       }
       &-section {
-        margin-bottom: 30px;
         overflow: hidden;
         height: 100%;
         width: 100%;
@@ -25,7 +24,7 @@ const FormPageStyled = styled.div`
     &__body {
       display: flex;
       flex-direction: column;
-      width: 315px;
+      width: 350px;
     }
 
     &__title {
@@ -33,6 +32,9 @@ const FormPageStyled = styled.div`
 
       &--highlight {
         color: ${(props) => props.theme.colors.magenta};
+        &-upload {
+          color: ${(props) => props.theme.colors.cyan};
+        }
       }
     }
 
@@ -53,7 +55,7 @@ const FormPageStyled = styled.div`
         &-section {
           width: 70%;
           overflow: hidden;
-          height: 90vh;
+          height: 100vh;
           padding-right: 30px;
         }
 

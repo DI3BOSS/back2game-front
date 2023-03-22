@@ -27,17 +27,23 @@ const FormStyled = styled.form`
     margin-left: -50px;
   }
 
-  .form__field {
-    display: flex;
-    align-items: center;
-    width: ${(props) => props.theme.generalStyles.fieldWidth};
-    height: ${(props) => props.theme.generalStyles.fieldHeight};
-    font-size: ${(props) => props.theme.fontSizes.standard};
-    background: ${(props) => props.theme.colors.white};
-    color: ${(props) => props.theme.colors.black};
-    border-radius: ${(props) => props.theme.generalStyles.cornerRadius};
-    font-family: ${(props) => props.theme.fonts.mainFont};
-    justify-content: center;
+  .form {
+    &__field {
+      display: flex;
+      align-items: center;
+      width: ${(props) => props.theme.generalStyles.fieldWidth};
+      height: ${(props) => props.theme.generalStyles.fieldHeight};
+      font-size: ${(props) => props.theme.fontSizes.standard};
+      background: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.black};
+      border-radius: ${(props) => props.theme.generalStyles.cornerRadius};
+      font-family: ${(props) => props.theme.fonts.mainFont};
+      justify-content: center;
+
+      :hover {
+        border: ${(props) => props.theme.colors.magenta};
+      }
+    }
   }
   .submit {
     width: ${(props) => props.theme.generalStyles.fieldWidth};
