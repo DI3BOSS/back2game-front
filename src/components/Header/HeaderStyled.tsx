@@ -20,6 +20,7 @@ const HeaderStyled = styled.header.attrs({
     justify-content: space-around;
     align-items: center;
     gap: 20px;
+    cursor: pointer;
 
     &__outer-circle {
       animation-name: outer-circle;

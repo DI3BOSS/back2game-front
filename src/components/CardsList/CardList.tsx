@@ -1,5 +1,6 @@
 import Card from "../Card/Card";
 import { ReactComponent as ViewIcon } from "../../assets/icons/view.svg";
+import { ReactComponent as CloseViewIcon } from "../../assets/icons/closeView.svg";
 import { ReactComponent as EditIcon } from "../../assets/icons/edit.svg";
 import { ReactComponent as DeleteIcon } from "../../assets/icons/delete.svg";
 import CardListStyled from "./CardListStyled";
@@ -20,6 +21,7 @@ const CardList = ({ games }: CardListProps): JSX.Element => {
               deleteButton={<DeleteIcon />}
               editButton={<EditIcon />}
               viewButton={<ViewIcon />}
+              hideButton={<CloseViewIcon />}
             />
           </li>
         ))}

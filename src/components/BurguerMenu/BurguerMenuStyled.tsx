@@ -68,6 +68,7 @@ const BurguerMenuStyled = styled.div`
   }
   .login {
     color: ${(props) => props.theme.colors.magenta};
+    cursor: pointer;
 
     &:hover {
       color: ${(props) => props.theme.colors.yellow};
@@ -75,6 +76,7 @@ const BurguerMenuStyled = styled.div`
   }
   .home {
     color: ${(props) => props.theme.colors.white};
+    cursor: pointer;
 
     &:hover {
       color: ${(props) => props.theme.colors.yellow};
@@ -82,6 +84,7 @@ const BurguerMenuStyled = styled.div`
   }
   .upload {
     color: ${(props) => props.theme.colors.cyan};
+    cursor: pointer;
 
     &:hover {
       color: ${(props) => props.theme.colors.yellow};
