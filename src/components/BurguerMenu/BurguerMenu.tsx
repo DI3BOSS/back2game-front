@@ -120,7 +120,7 @@ const BurguerMenu = ({ className }: BurguerMenuProps): JSX.Element => {
                     Let's Log out!
                   </span>
                   <a href="/games/upload" className="upload">
-                    Upload you game!
+                    Upload your game!
                   </a>
                 </>
               )}
