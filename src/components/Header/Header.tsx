@@ -4,7 +4,7 @@ import HeaderStyled from "./HeaderStyled";
 const Header = (): JSX.Element => {
   return (
     <HeaderStyled>
-      <div className="back2game-logo">
+      <a className="back2game-logo" href="/">
         <svg
           width="55"
           height="55"
@@ -87,7 +87,7 @@ const Header = (): JSX.Element => {
             fill="#F9CA00"
           />
         </svg>
-      </div>
+      </a>
       <BurguerMenu className="burguer-menu" />
     </HeaderStyled>
   );

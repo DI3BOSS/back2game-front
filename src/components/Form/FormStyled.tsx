@@ -41,10 +41,11 @@ const FormStyled = styled.form`
       justify-content: center;
 
       :hover {
-        border: ${(props) => props.theme.colors.magenta};
+        border: solid 4px ${(props) => props.theme.colors.magenta};
       }
     }
   }
+
   .submit {
     width: ${(props) => props.theme.generalStyles.fieldWidth};
     height: ${(props) => props.theme.generalStyles.fieldHeight};

@@ -19,7 +19,7 @@ const BurguerMenuStyled = styled.div`
 
   @keyframes breathing {
     from {
-      transform: scale(1.06);
+      transform: scale(1.02);
     }
     to {
       transform: scale(0.96);
