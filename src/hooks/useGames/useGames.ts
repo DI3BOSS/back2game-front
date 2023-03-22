@@ -68,6 +68,14 @@ const useGames = () => {
           throw new Error("Deleting game error");
         }
         dispatch(loaderOffActionCreator());
+        dispatch(
+          showFeedbackActionCreator({
+            title: "Done!",
+            message: "Your game was successfuly deleted",
+            isSuccess: true,
+            isWrong: false,
+          })
+        );
         dispatch(deleteGameActionCreator(gameId));
       } catch (error) {
         dispatch(loaderOffActionCreator());
@@ -102,6 +110,14 @@ const useGames = () => {
           throw new Error("Creating game error");
         }
         dispatch(loaderOffActionCreator());
+        dispatch(
+          showFeedbackActionCreator({
+            title: "Done!",
+            message: "Your game was successfuly created",
+            isSuccess: true,
+            isWrong: false,
+          })
+        );
       } catch (error) {
         dispatch(loaderOffActionCreator());
         dispatch(

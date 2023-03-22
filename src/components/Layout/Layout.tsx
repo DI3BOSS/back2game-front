@@ -15,7 +15,7 @@ const Layout = (): JSX.Element => {
 
   const {
     isLoading,
-    feedbackModal: { isWrong, message, title },
+    feedbackModal: { isWrong, isSuccess, message, title },
   } = useAppSelector((state) => state.ui);
 
   return (
@@ -24,6 +24,9 @@ const Layout = (): JSX.Element => {
       <main>
         {isLoading && <Loader />}
         {isWrong && (
+          <FeedbackModal title={title} message={message} icon={<Icon />} />
+        )}
+        {isSuccess && (
           <FeedbackModal title={title} message={message} icon={<Icon />} />
         )}
         <Outlet />

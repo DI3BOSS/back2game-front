@@ -22,7 +22,7 @@ const renderWithProviders = (
       ui: {
         isLoading: false,
         feedbackModal: {
-          isSuccess: false,
+          isSuccess: true,
           isWrong: true,
           message: "",
         },

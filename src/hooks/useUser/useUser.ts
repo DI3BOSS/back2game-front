@@ -48,6 +48,14 @@ const useUser = (): UseUserStructure => {
         localStorage.setItem("username", username);
 
         dispatch(loaderOffActionCreator());
+        dispatch(
+          showFeedbackActionCreator({
+            title: "There your are!",
+            message: `${username}, let's see your game list!`,
+            isSuccess: true,
+            isWrong: false,
+          })
+        );
 
         redirect(endpoints.root);
       } catch {
