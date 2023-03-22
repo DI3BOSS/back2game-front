@@ -1,4 +1,9 @@
-import { toggleBurguerMenuActionCreator } from "../../store/features/uiSlice/uiSlice";
+import useToken from "../../hooks/useToken/useToken";
+import {
+  showFeedbackActionCreator,
+  toggleBurguerMenuActionCreator,
+} from "../../store/features/uiSlice/uiSlice";
+import { logOutUserActionCreator } from "../../store/features/userSlice/userSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import BurguerMenuStyled from "./BurguerMenuStyled";
 
@@ -9,6 +14,21 @@ interface BurguerMenuProps {
 const BurguerMenu = ({ className }: BurguerMenuProps): JSX.Element => {
   const dispatch = useAppDispatch();
   const { username } = useAppSelector((state) => state.user);
+
+  const { removeToken } = useToken();
+
+  const handleLogOut = () => {
+    removeToken();
+    dispatch(
+      showFeedbackActionCreator({
+        title: "Done!",
+        message: "See you next time!",
+        isSuccess: true,
+        isWrong: false,
+      })
+    );
+    dispatch(logOutUserActionCreator());
+  };
 
   const {
     toggleBurguer: { isOpen },
@@ -38,14 +58,14 @@ const BurguerMenu = ({ className }: BurguerMenuProps): JSX.Element => {
             data-testid="burguer-menu"
           >
             <path
-              className="burguer__top-bread"
+              className="burguer__meat"
               fillRule="evenodd"
               clipRule="evenodd"
               d="M3.5 12.5C3.5 12.0858 3.89175 11.75 4.375 11.75H23.625C24.1082 11.75 24.5 12.0858 24.5 12.5C24.5 12.9142 24.1082 13.25 23.625 13.25H4.375C3.89175 13.25 3.5 12.9142 3.5 12.5Z"
               fill="white"
             />
             <path
-              className="burguer__meat"
+              className="burguer__top-bread"
               fillRule="evenodd"
               clipRule="evenodd"
               d="M3.5 6.5C3.5 6.08579 3.89175 5.75 4.375 5.75H17.5C17.9832 5.75 18.375 6.08579 18.375 6.5C18.375 6.91421 17.9832 7.25 17.5 7.25H4.375C3.89175 7.25 3.5 6.91421 3.5 6.5Z"
@@ -85,13 +105,24 @@ const BurguerMenu = ({ className }: BurguerMenuProps): JSX.Element => {
           </button>
           <div className="menu-switcher" onClick={handleClose}>
             <div className="menu">
-              <a href="/login" className="login">
-                Log in, bro!
-              </a>
-              {username && (
-                <a href="/games/upload" className="upload">
-                  Upload you game!
+              {!username && (
+                <a href="/login" className="login">
+                  Log in, bro!
                 </a>
+              )}
+              {username && (
+                <>
+                  <span
+                    className="login"
+                    onClick={() => handleLogOut()}
+                    data-testid="logout"
+                  >
+                    Let's Log out!
+                  </span>
+                  <a href="/games/upload" className="upload">
+                    Upload you game!
+                  </a>
+                </>
               )}
               <a href="/" className="home">
                 Back to home!
