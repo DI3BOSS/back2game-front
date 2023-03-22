@@ -1,8 +1,9 @@
 import renderWithProviders from "../../testUtils";
 import Card from "./Card";
 import { ReactComponent as ViewIcon } from "../../assets/icons/view.svg";
-import { fireEvent, screen } from "@testing-library/react";
+import { fireEvent, screen, waitFor } from "@testing-library/react";
 import Button from "../Button/Button";
+import userEvent from "@testing-library/user-event";
 
 describe("Given the Card component", () => {
   const mockedGame = {
@@ -82,5 +83,61 @@ describe("Given the Card component", () => {
 
       expect(deleteButton).toBeInTheDocument();
     });
+
+    test("Then it should show the description when view button is clicked", async () => {
+      const buttonName = "view description";
+
+      renderWithProviders(
+        <Card
+          game={mockedGame}
+          viewButton={mockedIcon}
+          deleteButton={mockedIcon}
+        />,
+        {
+          preloadedState: {
+            user: { username: mockedGame.owner, isLogged: true, token: "" },
+          },
+        }
+      );
+
+      const showDescriptionButton = screen.getByRole("button", {
+        name: buttonName,
+      });
+
+      userEvent.click(showDescriptionButton);
+
+      const gameDescription = await screen.findByText(mockedGame.description);
+      expect(gameDescription).toBeInTheDocument();
+    });
+  });
+
+  test("Then it should hide the description when hide button is clicked", async () => {
+    const hideButton = "hide description";
+    const showButton = "view description";
+
+    renderWithProviders(
+      <Card
+        game={mockedGame}
+        viewButton={mockedIcon}
+        deleteButton={mockedIcon}
+      />,
+      {
+        preloadedState: {
+          user: { username: mockedGame.owner, isLogged: true, token: "" },
+        },
+      }
+    );
+
+    const showDescriptionButton = screen.getByRole("button", {
+      name: showButton,
+    });
+
+    await userEvent.click(showDescriptionButton);
+
+    const hideDescriptionButton = await screen.findByLabelText(hideButton);
+
+    await userEvent.click(hideDescriptionButton);
+
+    await waitFor(() => expect(hideDescriptionButton).not.toBeInTheDocument());
   });
 });

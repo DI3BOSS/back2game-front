@@ -4,7 +4,7 @@ import HeaderStyled from "./HeaderStyled";
 const Header = (): JSX.Element => {
   return (
     <HeaderStyled>
-      <a className="back2game-logo" href="/">
+      <a className="back2game-logo" href="/" aria-label="back2game home">
         <svg
           width="55"
           height="55"
@@ -12,6 +12,7 @@ const Header = (): JSX.Element => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           data-testid="back2game-logo"
+          aria-label="back2game logo"
         >
           <path
             d="M103.707 81.141C103.707 87.081 103.682 93.0209 103.721 98.9609C103.736 100.819 103.306 102.417 101.497 103.307C99.7268 104.177 98.1134 103.703 96.5292 102.657C87.5183 96.7023 78.4682 90.7965 69.4523 84.8468C66.0591 82.6077 66.0786 79.469 69.4963 77.2103C78.6295 71.1824 87.7774 65.1837 96.9204 59.1753C98.3872 58.2122 99.9615 58.0215 101.546 58.8086C103.11 59.5908 103.712 60.9548 103.707 62.6366C103.692 68.8015 103.702 74.9712 103.707 81.1361V81.141ZM95.3705 70.2339C95.1016 70.3121 94.9549 70.3268 94.8522 70.3953C89.7673 73.7392 84.6922 77.093 79.5976 80.4223C78.6491 81.0432 79.1527 81.3708 79.7638 81.7717C84.6531 84.9885 89.5375 88.2152 94.4268 91.437C94.6811 91.6032 94.9109 91.8818 95.3656 91.7498V70.2339H95.3705Z"
@@ -48,6 +49,7 @@ const Header = (): JSX.Element => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           data-testid="back2game-text"
+          aria-label="back2game text"
         >
           <path
             d="M30.375 21.4586H24.5417L23.4377 25.6384H17.5183L23.9636 5.50073H31.073L37.5459 25.6384H31.4512L30.378 21.4586H30.375ZM29.3602 17.4323L28.3147 13.4367L27.5029 10.1408H27.4445L26.6603 13.406L25.5872 17.4323H29.3602Z"
@@ -88,7 +90,7 @@ const Header = (): JSX.Element => {
           />
         </svg>
       </a>
-      <BurguerMenu className="burguer-menu" />
+      <BurguerMenu className="burguer-menu" aria-label="burguer menu" />
     </HeaderStyled>
   );
 };
