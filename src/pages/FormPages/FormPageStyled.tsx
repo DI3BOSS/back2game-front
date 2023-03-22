@@ -24,11 +24,12 @@ const FormPageStyled = styled.div`
     &__body {
       display: flex;
       flex-direction: column;
-      width: 350px;
+      width: 315px;
     }
 
     &__title {
       font-size: ${(props) => props.theme.fontSizes.bigMessage};
+      padding-top: 10px;
 
       &--highlight {
         color: ${(props) => props.theme.colors.magenta};
@@ -60,8 +61,9 @@ const FormPageStyled = styled.div`
         }
 
         &-image {
-          height: 100%;
+          image-rendering: optimizeSpeed;
           width: 100%;
+          height: 100%;
           object-fit: cover;
         }
       }
